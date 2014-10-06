@@ -1,8 +1,7 @@
 @ hello.S: Hello world! in assembly
 @
-@ Authors: Group Member 1 <email address>
-@          Group Member 2 <email address>
-@ Date:    The current time & date
+@ Authors: Zhengyang Zuo <zzuo@andrew.cmu.edu>
+@ Date:    10/06/2014, 2:22 PM
 
 #include <bits/swi.h>
 #include <bits/fileno.h>

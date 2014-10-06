@@ -1,8 +1,7 @@
 @ crt0.S: Execution startup routine
 @
-@ Authors: Group Member 1 <email address>
-@          Group Member 2 <email address>
-@ Date:    The current time & date
+@ Authors: Zhengyang Zuo <zzuo@andrew.cmu.edu>
+@ Date:    10/06/2014, 2:24 PM
 
 	.file	"crt0.S"
 	.text

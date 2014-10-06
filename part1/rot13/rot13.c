@@ -2,7 +2,7 @@
  * rot13.c: ROT13 cipher test application
  *
  * Authors: Zhengyang Zuo <zzuo@andrew.cmu.edu>
- * Date:    The current time & date
+ * Date:    10/06/2014, 2:25 PM
  */
 #include <stdlib.h>
 #include <unistd.h>

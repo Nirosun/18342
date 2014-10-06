@@ -1,8 +1,7 @@
 @ write.S: write sycall wrapper
 @
-@ Authors: Group Member 1 <email address>
-@          Group Member 2 <email address>
-@ Date:    The current time & date
+@ Authors: Zhengyang Zuo
+@ Date:    10/06/2014, 2:24 PM
 
 #include <bits/swi.h>
 
