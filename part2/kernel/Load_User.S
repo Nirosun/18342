@@ -12,13 +12,13 @@
 
 Load_User:
         stmfd	sp!, {r1-r12, lr}
-        mov	r2, #OLDSP_ADDR
+        ldr	r2, =OLDSP_ADDR
         str	sp, [r2]		@ store original registers and stack
         mrs	r3, cpsr
         bic	r3, r3, #0x000000ff
         orr	r3, r3, #0x000000d0
         msr	cpsr, r3		@ change cpsr to user mode and mask I,F
-        mov	sp, #KERNEL_ADDR	@ setup user mode stack
+        ldr	sp, =KERNEL_ADDR	@ setup user mode stack
         mov	r2, #0
         str	r2, [sp, #-4]!		@ push <NULL> on top of stack
         mov	r3, r0
@@ -31,7 +31,7 @@ Load_User:
         b	.L1
 .L2:
 	str	r0, [sp, #-4]!		@ push argc on user stack
-        mov	r3, #USER_ADDR
+        ldr	r3, =USER_ADDR
         blx	r3			@ jump to user program
         swi	EXIT_SWI
 	
