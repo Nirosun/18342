@@ -6,12 +6,13 @@
  */
 #include <stdlib.h>
 #include <unistd.h>
+#include <exports.h>
 
 #define MAX_SIZE 1000
 
 int main(void) {
 
-	int count_read, count_write, count_ret, i;
+	int count_read, count_write, count_ret=0, i;
 	char buf[MAX_SIZE], *ptr;
 	while (1)
 	{

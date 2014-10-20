@@ -1,12 +1,15 @@
-CC      = gcc
-OBJCOPY = objcopy
-CFLAGS  = -O2 -ffreestanding -Wall -Werror -nostdinc -I ../libc/include
+CC      = arm-linux-gcc
+AR	= arm-linux-ar
+OBJCOPY = arm-linux-objcopy
+CFLAGS  = -O2 -ffreestanding -Wall -Werror -nostdinc -I ../libc/include -I ../../part2/uboot/include
 LDFLAGS = -nostdlib -Wl,-Ttext,$(LOAD_ADDR) 
 
 LOAD_ADDR = 0xa2000000
 
 CRT0    = ../libc/crt0.o
 LDLIBS  = ../libc/libc.a
+
+STUBS = ../../part2/uboot/stubs.o
 
 objects = rot13.o
 
@@ -18,7 +21,7 @@ rot13.bin: rot13
 	$(OBJCOPY) -O binary $< $@
 
 rot13: $(objects)
-	$(CC) $(LDFLAGS) -o $@ $(CRT0) $^ $(LDLIBS)
+	$(CC) $(LDFLAGS) -o $@ $(CRT0) $^ $(LDLIBS) $(STUBS)
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
