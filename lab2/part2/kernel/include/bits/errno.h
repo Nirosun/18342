@@ -34,7 +34,7 @@
 #define	ESPIPE		29	/* Illegal seek */
 #define	EROFS		30	/* Read-only file system */
 #define	EMLINK		31	/* Too many links */
-#define	EPIPE		32	/* Broken pipe */
+#define	EPIPE		32	/* Broken pipe :( */
 #define	EDOM		33	/* Math argument out of domain of func */
 #define	ERANGE		34	/* Math result not representable */
 
