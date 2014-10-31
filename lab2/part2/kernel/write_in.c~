@@ -1,0 +1,7 @@
+#include <exports.h>
+
+ssize_t write (int fd, const void *buf, size_t count)
+{
+	printf("enter write.\n");
+	return 0;
+}

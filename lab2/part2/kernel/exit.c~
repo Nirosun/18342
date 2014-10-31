@@ -1,0 +1,6 @@
+
+void exit(int status)
+{
+	puts("enter exit.\n");
+	return status;
+}

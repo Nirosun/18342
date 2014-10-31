@@ -18,14 +18,11 @@ int main(int argc, char *argv[]) {
 
 	unsigned *swi_vec_addr = (unsigned *)0x08;
 	unsigned *swi_handler_new;
-	unsigned swi_old_inst[2];	// first two instructions in old swi handler
+	unsigned swi_old_inst[2];
 	int ret_val;
 
 	swi_handler_new = (unsigned *)&S_Handler;
 	
-	printf("Print: %x"\n, &printf);
-
-
 	// install new swi handler
 	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);	
 
