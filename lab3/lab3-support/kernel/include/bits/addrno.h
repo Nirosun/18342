@@ -9,7 +9,7 @@
 #define BITS_ADDRNO_H
 
 #define KERNEL_ADDR	0xa3000000
-#define USER_ADDR	0xa2000000
+#define USER_ADDR	0xa0000000
 #define OLDSP_ADDR	0xa1000000
 
 #endif /* BITS_ADDRNO_H */
