@@ -15,6 +15,6 @@ ALL_CLOBBERS += $(KERNEL) $(KERNEL).bin
 # UOBJS contains objects that are U-boot dependent.
 
 $(KERNEL): $(KSTART) $(KOBJS) $(AOBJS) $(UOBJS)
-	echo LD $(notdir $@)
-	$(LD) -static $(LDFLAGS) -o $@ $^ $(LIBGCC)
+	@echo LD $(notdir $@)
+	@$(LD) -static $(LDFLAGS) -o $@ $^ $(LIBGCC)
 

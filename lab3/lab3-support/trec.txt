@@ -1,0 +1,270 @@
+echo DEP typo.c
+DEP typo.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/typo/typo.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/typo/typo.o /home/niro/lab/labs/lab3/lab3-support/tasks/typo/typo.c
+echo DEP splat.c
+DEP splat.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/splat/splat.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/splat/splat.o /home/niro/lab/labs/lab3/lab3-support/tasks/splat/splat.c
+echo DEP twist_num.c
+DEP twist_num.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/twister/twist_num.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/twister/twist_num.o /home/niro/lab/labs/lab3/lab3-support/tasks/twister/twist_num.c
+echo DEP twister.c
+DEP twister.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/twister/twister.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/twister/twister.o /home/niro/lab/labs/lab3/lab3-support/tasks/twister/twister.c
+echo DEP exit.S
+DEP exit.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/exit/exit.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/exit/exit.o /home/niro/lab/labs/lab3/lab3-support/tasks/exit/exit.S
+echo DEP hello.c
+DEP hello.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/hello/hello.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/hello/hello.o /home/niro/lab/labs/lab3/lab3-support/tasks/hello/hello.c
+echo DEP crt0.S
+DEP crt0.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/crt0.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/crt0.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/crt0.S
+echo DEP raise.c
+DEP raise.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/raise.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/raise.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/raise.c
+echo DEP rand.c
+DEP rand.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/rand.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/rand.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/rand.c
+echo DEP strtoul.c
+DEP strtoul.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtoul.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtoul.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtoul.c
+echo DEP strtol.c
+DEP strtol.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtol.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtol.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtol.c
+echo DEP atoi.c
+DEP atoi.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/atoi.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/atoi.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/atoi.c
+echo DEP ctype.c
+DEP ctype.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/ctype.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/ctype.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/ctype.c
+echo DEP errno.c
+DEP errno.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/errno.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/errno.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/errno.c
+echo DEP sscanf.c
+DEP sscanf.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sscanf.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sscanf.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sscanf.c
+echo DEP sprintf.c
+DEP sprintf.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sprintf.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sprintf.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sprintf.c
+echo DEP puts.c
+DEP puts.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/puts.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/puts.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/puts.c
+echo DEP putchar.c
+DEP putchar.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/putchar.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/putchar.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/putchar.c
+echo DEP printf.c
+DEP printf.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/printf.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/printf.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/printf.c
+echo DEP hexdump.c
+DEP hexdump.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/hexdump.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/hexdump.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/hexdump.c
+echo DEP doscan.c
+DEP doscan.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doscan.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doscan.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doscan.c
+echo DEP doprnt.c
+DEP doprnt.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doprnt.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doprnt.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doprnt.c
+echo DEP strstr.c
+DEP strstr.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strstr.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strstr.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strstr.c
+echo DEP strspn.c
+DEP strspn.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strspn.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strspn.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strspn.c
+echo DEP strrchr.c
+DEP strrchr.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strrchr.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strrchr.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strrchr.c
+echo DEP strpbrk.c
+DEP strpbrk.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strpbrk.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strpbrk.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strpbrk.c
+echo DEP strncpy.c
+DEP strncpy.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncpy.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncpy.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncpy.c
+echo DEP strncmp.c
+DEP strncmp.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncmp.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncmp.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncmp.c
+echo DEP strncat.c
+DEP strncat.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncat.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncat.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncat.c
+echo DEP strlen.c
+DEP strlen.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strlen.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strlen.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strlen.c
+echo DEP strcspn.c
+DEP strcspn.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcspn.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcspn.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcspn.c
+echo DEP strcpy.c
+DEP strcpy.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcpy.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcpy.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcpy.c
+echo DEP strcmp.c
+DEP strcmp.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcmp.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcmp.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcmp.c
+echo DEP strchr.c
+DEP strchr.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strchr.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strchr.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strchr.c
+echo DEP strcat.c
+DEP strcat.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcat.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcat.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcat.c
+echo DEP memset.c
+DEP memset.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memset.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memset.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memset.c
+echo DEP memcmp.c
+DEP memcmp.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memcmp.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memcmp.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memcmp.c
+echo DEP memmove.c
+DEP memmove.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memmove.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memmove.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memmove.c
+echo DEP sleep.S
+DEP sleep.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/sleep.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/sleep.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/sleep.S
+echo DEP time.S
+DEP time.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/time.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/time.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/time.S
+echo DEP write.S
+DEP write.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/write.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/write.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/write.S
+echo DEP read.S
+DEP read.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/read.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/read.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/read.S
+echo DEP exit.S
+DEP exit.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/exit.dep -MT /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/exit.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/exit.S
+echo DEP psr.c
+DEP psr.c
+arm-linux-gcc -O3 -ffreestanding -ffixed-r8 -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/uboot/include -I/home/niro/lab/labs/lab3/lab3-support/kernel/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/kernel/arm/psr.dep -MT /home/niro/lab/labs/lab3/lab3-support/kernel/arm/psr.o /home/niro/lab/labs/lab3/lab3-support/kernel/arm/psr.c
+echo DEP reg.c
+DEP reg.c
+arm-linux-gcc -O3 -ffreestanding -ffixed-r8 -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/uboot/include -I/home/niro/lab/labs/lab3/lab3-support/kernel/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/kernel/arm/reg.dep -MT /home/niro/lab/labs/lab3/lab3-support/kernel/arm/reg.o /home/niro/lab/labs/lab3/lab3-support/kernel/arm/reg.c
+echo DEP start.S
+DEP start.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/uboot/include -I/home/niro/lab/labs/lab3/lab3-support/kernel/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/kernel/start.dep -MT /home/niro/lab/labs/lab3/lab3-support/kernel/start.o /home/niro/lab/labs/lab3/lab3-support/kernel/start.S
+echo DEP raise.c
+DEP raise.c
+arm-linux-gcc -O3 -ffreestanding -ffixed-r8 -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/uboot/include -I/home/niro/lab/labs/lab3/lab3-support/kernel/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/kernel/raise.dep -MT /home/niro/lab/labs/lab3/lab3-support/kernel/raise.o /home/niro/lab/labs/lab3/lab3-support/kernel/raise.c
+echo DEP main.c
+DEP main.c
+arm-linux-gcc -O3 -ffreestanding -ffixed-r8 -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/uboot/include -I/home/niro/lab/labs/lab3/lab3-support/kernel/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/kernel/main.dep -MT /home/niro/lab/labs/lab3/lab3-support/kernel/main.o /home/niro/lab/labs/lab3/lab3-support/kernel/main.c
+echo DEP assert.c
+DEP assert.c
+arm-linux-gcc -O3 -ffreestanding -ffixed-r8 -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/uboot/include -I/home/niro/lab/labs/lab3/lab3-support/kernel/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/kernel/assert.dep -MT /home/niro/lab/labs/lab3/lab3-support/kernel/assert.o /home/niro/lab/labs/lab3/lab3-support/kernel/assert.c
+echo DEP stubs.c
+DEP stubs.c
+arm-linux-gcc -O3 -ffreestanding -ffixed-r8 -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/uboot/include -I/home/niro/lab/labs/lab3/lab3-support/kernel/include -M -MP -MF /home/niro/lab/labs/lab3/lab3-support/uboot/stubs.dep -MT /home/niro/lab/labs/lab3/lab3-support/uboot/stubs.o /home/niro/lab/labs/lab3/lab3-support/uboot/stubs.c
+echo CC crt0.S
+CC crt0.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/crt0.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/crt0.S
+echo CC hello.c
+CC hello.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/hello/hello.o /home/niro/lab/labs/lab3/lab3-support/tasks/hello/hello.c
+echo CC exit.S
+CC exit.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/exit.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/exit.S
+echo CC read.S
+CC read.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/read.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/read.S
+echo CC write.S
+CC write.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/write.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/write.S
+echo CC time.S
+CC time.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/time.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/time.S
+echo CC sleep.S
+CC sleep.S
+arm-linux-gcc -nostdinc -Wall -Wextra -Werror -DASSEMBLER -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/sleep.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/sleep.S
+echo CC memmove.c
+CC memmove.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memmove.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memmove.c
+echo CC memcmp.c
+CC memcmp.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memcmp.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memcmp.c
+echo CC memset.c
+CC memset.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memset.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memset.c
+echo CC strcat.c
+CC strcat.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcat.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcat.c
+echo CC strchr.c
+CC strchr.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strchr.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strchr.c
+echo CC strcmp.c
+CC strcmp.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcmp.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcmp.c
+echo CC strcpy.c
+CC strcpy.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcpy.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcpy.c
+echo CC strcspn.c
+CC strcspn.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcspn.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcspn.c
+echo CC strlen.c
+CC strlen.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strlen.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strlen.c
+echo CC strncat.c
+CC strncat.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncat.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncat.c
+echo CC strncmp.c
+CC strncmp.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncmp.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncmp.c
+echo CC strncpy.c
+CC strncpy.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncpy.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncpy.c
+echo CC strpbrk.c
+CC strpbrk.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strpbrk.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strpbrk.c
+echo CC strrchr.c
+CC strrchr.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strrchr.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strrchr.c
+echo CC strspn.c
+CC strspn.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strspn.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strspn.c
+echo CC strstr.c
+CC strstr.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strstr.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strstr.c
+echo CC doprnt.c
+CC doprnt.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doprnt.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doprnt.c
+echo CC doscan.c
+CC doscan.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doscan.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doscan.c
+echo CC hexdump.c
+CC hexdump.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/hexdump.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/hexdump.c
+echo CC printf.c
+CC printf.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/printf.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/printf.c
+echo CC putchar.c
+CC putchar.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/putchar.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/putchar.c
+echo CC puts.c
+CC puts.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/puts.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/puts.c
+echo CC sprintf.c
+CC sprintf.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sprintf.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sprintf.c
+echo CC sscanf.c
+CC sscanf.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sscanf.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sscanf.c
+echo CC errno.c
+CC errno.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/errno.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/errno.c
+echo CC ctype.c
+CC ctype.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/ctype.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/ctype.c
+echo CC atoi.c
+CC atoi.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/atoi.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/atoi.c
+echo CC strtol.c
+CC strtol.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtol.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtol.c
+echo CC strtoul.c
+CC strtoul.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtoul.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtoul.c
+echo CC rand.c
+CC rand.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/rand.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/rand.c
+echo CC raise.c
+CC raise.c
+arm-linux-gcc -O3 -ffreestanding -nostdinc -Werror -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -Wwrite-strings -Wsystem-headers -I/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include -c -o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/raise.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/raise.c
+echo AR libc.a
+AR libc.a
+arm-linux-ar rc /home/niro/lab/labs/lab3/lab3-support/tasks/libc/libc.a /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/exit.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/read.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/write.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/time.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/swi/sleep.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memmove.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memcmp.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/memset.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcat.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strchr.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcmp.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcpy.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strcspn.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strlen.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncat.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncmp.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strncpy.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strpbrk.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strrchr.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strspn.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/string/strstr.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doprnt.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/doscan.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/hexdump.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/printf.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/putchar.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/puts.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sprintf.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdio/sscanf.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/errno.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/ctype.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/atoi.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtol.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/strtoul.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/stdlib/rand.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/raise.o
+echo LD hello
+LD hello
+arm-linux-ld -static -nostdlib -N --fatal-warnings --warn-common -Ttext 0xa0000000 -o /home/niro/lab/labs/lab3/lab3-support/tasks/bin/hello /home/niro/lab/labs/lab3/lab3-support/tasks/libc/crt0.o /home/niro/lab/labs/lab3/lab3-support/tasks/hello/hello.o /home/niro/lab/labs/lab3/lab3-support/tasks/libc/libc.a --start-group /home/niro/lab/labs/lab3/lab3-support/tasks/libc/libc.a `arm-linux-gcc -print-libgcc-file-name` --end-group
