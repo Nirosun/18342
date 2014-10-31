@@ -15,14 +15,14 @@ $(PACKAGES) : % : $(TDIR)/bin/%.bin $(TDIR)/%/skyeye.conf $(TDIR)/%/package.bin
 # Create a skyeye conf file link local to each binary so that you can easily 
 # invoke skyeye.  Similarly create a symlink to the actual binary.
 %/skyeye.conf :
-	@echo LN $(notdir $@)
-	@ln -s $(TDIR)/skyeye.conf $@
+	echo LN $(notdir $@)
+	ln -s $(TDIR)/skyeye.conf $@
 
 $(TDIR)/%/package.bin : $(TDIR)/bin/%.bin
-	@echo LN $(notdir $@)
-	@ln -s $< $@
+	echo LN $(notdir $@)
+	ln -s $< $@
 
 $(PACKAGE_TARGETS):
-	@echo LD $(notdir $@)
-	@$(LD) -static $(LDFLAGS) -o $@ $^ $(LIBC_GROUP)
+	echo LD $(notdir $@)
+	$(LD) -static $(LDFLAGS) -o $@ $^ $(LIBC_GROUP)
 
