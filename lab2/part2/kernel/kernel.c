@@ -23,6 +23,9 @@ int main(int argc, char *argv[]) {
 
 	swi_handler_new = (unsigned *)&S_Handler;
 	
+	printf("Print: %x\n", &printf);
+
+
 	// install new swi handler
 	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);	
 
