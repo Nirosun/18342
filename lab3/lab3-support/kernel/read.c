@@ -28,7 +28,7 @@ ssize_t read (int fd, void *buf, size_t count)
 	int id = 0;
 	while (1)
 	{
-		if (id >= count)
+		if (id >= (int)count)
 		{
 			cbuf[id] = '\0';
 			putc('\n');

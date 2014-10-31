@@ -28,7 +28,9 @@ int kmain(int argc, char** argv, uint32_t table)
 	swi_handler_new = (unsigned *)&S_Handler;
 	
 	// install new swi handler
-	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);	
+	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);
+
+	printf("Before loading user program.\n");	
 
 	ret_val = Load_User(argc, argv);
 

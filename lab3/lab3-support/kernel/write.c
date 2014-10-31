@@ -26,7 +26,7 @@ ssize_t write (int fd, const void *buf, size_t count)
 		return -EFAULT;
 	}
 
-	for (i = 0; i < count && cbuf[i] != '\0'; i ++)
+	for (i = 0; i < (int)count && cbuf[i] != '\0'; i ++)
 	{
 		putc(cbuf[i]);
 	}
