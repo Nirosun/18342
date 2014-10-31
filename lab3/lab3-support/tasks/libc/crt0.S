@@ -1,14 +1,11 @@
-/** @file crt0.S
- *
- * @brief Execution startup routine
- *
- * @author Mike Kasick <mkasick@andrew.cmu.edu>
- * @date   Sun, 07 Oct 2007 01:51:29 -0400
- */
+@ crt0.S: Execution startup routine
+@
+@ Authors: Zhengyang Zuo <zzuo@andrew.cmu.edu>
+@ Date:    10/06/2014, 2:24 PM
 
-#include <asm.h>
+	.file	"crt0.S"
+	.text
 
-	.file "crt0.S"
-
-FUNC(_start)
-	@ needs code.  Put your names at the top.
+	.global	_start
+_start:
+	b main
