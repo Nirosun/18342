@@ -9,10 +9,12 @@
  */
 #include <unistd.h>
 #include <stdio.h>
+//#include <exports.h>
 
 int main(int argc, char** argv)
 {
-	printf("Enter hello.\n");	
+	//puts("Enter hello.\n");	
+	
 	const char hello[] = "Hello World\r\n";
 	write(STDOUT_FILENO, hello, sizeof(hello) - 1);
 	return 0;

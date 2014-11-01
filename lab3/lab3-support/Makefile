@@ -59,6 +59,7 @@ TLDFLAGS = -nostdlib -N --fatal-warnings --warn-common -Ttext $(TLOAD_ADDR)
 
 KINCLUDES = -I$(UDIR)/include -I$(KDIR)/include
 TINCLUDES = -I$(TLIBCDIR)/include
+#TINCLUDES = -I$(TLIBCDIR)/include -I$(UDIR)/include
 
 ########### SUBFOLDER INCLUDES ##################
 

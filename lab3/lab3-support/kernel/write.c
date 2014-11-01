@@ -14,6 +14,8 @@ ssize_t write (int fd, const void *buf, size_t count)
 	char *cbuf = (char *)buf;
 	int i;
 
+	printf("Entering write.\n");
+
 	if (fd != STDOUT_FILENO)
 	{
 		printf("Error: wrong file number\n");
@@ -31,6 +33,8 @@ ssize_t write (int fd, const void *buf, size_t count)
 		putc(cbuf[i]);
 	}
 	putc('\n');
+
+	printf("Leaving write.\n");
 
 	return i;
 }

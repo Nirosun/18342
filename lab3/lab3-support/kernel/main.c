@@ -34,6 +34,8 @@ int kmain(int argc, char** argv, uint32_t table)
 
 	ret_val = Load_User(argc, argv);
 
+	printf("After returning from user program.\n");
+
 	// restore old swi handler
 	Restore_Handler(swi_vec_addr, swi_old_inst);
 

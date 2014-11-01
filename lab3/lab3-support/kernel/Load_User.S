@@ -22,8 +22,8 @@ Load_User:
         mov	r2, #0
         str	r2, [sp, #-4]!		@ push <NULL> on top of stack
         mov	r3, r0
-.L1:
-        mov	r3, r3, LSL #2
+	mov	r3, r3, LSL #2
+.L1:       
         subs	r3, r3, #4
         blt	.L2
         ldr	r2, [r1, r3]
