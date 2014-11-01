@@ -1,2 +1,3 @@
-18342 Embedded System. 2014 Fall
+18342 Embedded System. 
 =====
+2014 Fall CMU
