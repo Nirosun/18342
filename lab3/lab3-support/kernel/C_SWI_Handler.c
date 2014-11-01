@@ -21,7 +21,8 @@ void C_SWI_Handler (unsigned swi_num, unsigned *regs)
 	case EXIT_SWI:
 		exit((int)regs[0]);
 		break;
-	case READ_SWI:		
+	case READ_SWI:	
+		//printf("Before entering write.\n");	
 		regs[0] = read(regs[0], (void *)regs[1], regs[2]);
 		break;
 	case WRITE_SWI:
