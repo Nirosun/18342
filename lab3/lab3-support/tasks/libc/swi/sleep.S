@@ -9,6 +9,11 @@
 #include <asm.h>
 
 	.file "sleep.S"
+	.global sleep
 
 FUNC(sleep)
-	@ Add code here.  Put your names at the top.
+sleep:
+	stmfd sp!,{r1-r12, lr}
+	swi SLEEP_SWI
+	ldmfd sp!,{r1-r12, lr}
+	mov pc, lr
