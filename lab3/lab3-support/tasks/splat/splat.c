@@ -7,6 +7,9 @@
 
 int main(int argc, char** argv)
 {
-	/* Add code here -- put your names at the top. */
+	while(1)
+	{
+		write(STDOUT_FILENO, "\r|",20); 
+	}
 	return 0;
 }

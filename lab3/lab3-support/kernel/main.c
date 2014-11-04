@@ -39,8 +39,7 @@ int kmain(int argc, char** argv, uint32_t table)
 
 	swi_handler_new = (unsigned *)&S_Handler;
 	irq_handler_new = (unsigned *)&Irq_Handler;
-
-	void reg (); // set up registers for timer
+	
 #ifdef debug
 	printf("Before install handler. \n");
 #endif
@@ -54,7 +53,9 @@ int kmain(int argc, char** argv, uint32_t table)
 	// initialization
 	init_irq();
 	init_os_time();
-
+#ifdef debug
+	printf("After initializations. \n");
+#endif
 	// init user args to stack, change oldsp_addr
 	ret_val = Load_User(argc, argv);
 

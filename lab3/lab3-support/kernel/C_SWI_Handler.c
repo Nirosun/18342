@@ -30,7 +30,7 @@ void C_SWI_Handler (unsigned swi_num, unsigned *regs)
 	case TIME_SWI:
 		break;
 	case SLEEP_SWI:
-		sleep((int)reg[0]);
+		sleep((unsigned int)reg[0]);
 		break;
 	default:
 		printf("Error: swi not implemented: %x\n", swi_num);
