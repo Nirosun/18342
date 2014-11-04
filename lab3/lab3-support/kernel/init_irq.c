@@ -6,6 +6,8 @@
 #include <arm/psr.h>
 #include <arm/interrupt.h>
 
+void irq_stack_setup(void * stack);
+
 void init_irq()
 {
 	void * irq_stack = (void *)(0xa3f00000 + 0x200); // 512 bytes

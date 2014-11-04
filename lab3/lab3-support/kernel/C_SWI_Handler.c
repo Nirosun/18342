@@ -10,6 +10,7 @@
 
 ssize_t read(int fd, void *buf, size_t count);
 ssize_t write(int fd, const void *buf, size_t count);
+void sleep(int time);
 void exit();
 
 
@@ -30,7 +31,7 @@ void C_SWI_Handler (unsigned swi_num, unsigned *regs)
 	case TIME_SWI:
 		break;
 	case SLEEP_SWI:
-		sleep((unsigned int)reg[0]);
+		sleep((unsigned int)regs[0]);
 		break;
 	default:
 		printf("Error: swi not implemented: %x\n", swi_num);

@@ -11,6 +11,7 @@
 void Install_Handler(unsigned *swi_vec_addr, unsigned *swi_handler_new, unsigned *swi_old_inst);
 void Restore_Handler(unsigned *swi_vec_addr, unsigned *swi_old_inst);
 unsigned S_Handler();
+unsigned Irq_Handler();
 int Load_User();
 void init_irq();
 void init_os_time();
