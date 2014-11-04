@@ -50,9 +50,6 @@ int kmain(int argc, char** argv, uint32_t table)
 	printf("After install handler. \n");
 #endif
 
-#ifdef debug
-	printf("Before initializations. \n");
-#endif
 	// initialization
 	init_irq();
 	init_os_time();
