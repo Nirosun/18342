@@ -4,6 +4,8 @@
  *
  * Links to libc.
  */
+#include <bits/fileno.h>
+#include <unistd.h>
 
 int main(int argc, char** argv)
 {
