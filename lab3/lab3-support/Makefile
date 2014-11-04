@@ -51,7 +51,7 @@ CWARNINGS_SAFE = -Wall -Wextra -Wno-unused-parameter -Wpointer-arith \
 CWARNINGS = -Werror $(CWARNINGS_SAFE)
 CWARNINGS1 = $(CWARNINGS_SAFE) $(CWARNINGS_NOISY)
 
-KCFLAGS = -O3 -ffreestanding -ffixed-r8 -nostdinc $(CWARNINGS)
+KCFLAGS = -O3 -g -ffreestanding -ffixed-r8 -nostdinc $(CWARNINGS)
 TCFLAGS = -O3 -ffreestanding -nostdinc $(CWARNINGS)
 ASFLAGS = -nostdinc -Wall -Wextra -Werror -DASSEMBLER
 KLDFLAGS = -nostdlib -N --fatal-warnings --warn-common -Ttext $(KLOAD_ADDR)
