@@ -10,6 +10,6 @@ irq_stack_setup:
 	ldr sp, [r0]		@ allocate irq_sp to irq_stack
 	mrs ip, cpsr
 	orr ip, ip, #0x13
-	orr ip, ip, #0x80	@ enable IRQ
+	bic ip, ip, #0x80	@ enable IRQ
 	msr cpsr, ip 		@ change back to svc mode
 	mov pc, lr
