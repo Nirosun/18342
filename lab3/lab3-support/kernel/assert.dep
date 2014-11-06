@@ -1,0 +1,26 @@
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/assert.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/kernel/assert.c \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/assert.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/stdarg.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/exports.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/types.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/_exports.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/psr.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/inline.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/exception.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/assert.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/stdarg.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/exports.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/types.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/_exports.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/psr.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/inline.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/exception.h:

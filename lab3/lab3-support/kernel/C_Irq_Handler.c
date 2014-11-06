@@ -26,10 +26,10 @@ void C_Irq_Handler()
  		printf("right irq source (icpr:%d). inside C_Irq_Handler. \n",icpr);
  	#endif
 
- 		os_time ++;	
+ 		os_time ++;	 // 10 ms
 
  		new_timmer = reg_read(OSTMR_OSMR_ADDR(0));
-		new_timmer += (osmr_value*10)/1000;
+		new_timmer += (osmr_value*10)/1000;	// 10 ms
 		reg_write(OSTMR_OSMR_ADDR(0), new_timmer);
 
 		/* restart */

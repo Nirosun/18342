@@ -1,0 +1,14 @@
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/test.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/kernel/test.c \
+  /home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/exports.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/types.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/stdarg.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/_exports.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/exports.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/types.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/stdarg.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/_exports.h:

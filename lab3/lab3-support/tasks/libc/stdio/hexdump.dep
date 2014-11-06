@@ -1,0 +1,21 @@
+ \
+ /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/stdio/hexdump.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/stdio/hexdump.c \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/ctype.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/inline.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/stdio.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/stdarg.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/sys/types.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/types.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/ctype.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/inline.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/stdio.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/stdarg.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/sys/types.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/types.h:
