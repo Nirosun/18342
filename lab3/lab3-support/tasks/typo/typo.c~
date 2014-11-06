@@ -50,7 +50,6 @@ int main(int argc, char** argv)
 		//printf("\n");		
 		
 		input_time = time() - start_time;
-		input_time = input_time / 100;
 		//start_time = time();
 		
 		/*count_itoa = 0;
