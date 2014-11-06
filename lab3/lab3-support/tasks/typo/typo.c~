@@ -18,8 +18,8 @@ int main(int argc, char** argv)
 	unsigned long start_time = 0;
 	unsigned long input_time = 0;
 	char prompt[50] = "Please input:\n";
-	char timeInt[10];
-	char timeFrac[10];
+	//char timeInt[10];
+	//char timeFrac[10];
 	//int count_itoa;
 
 	while (1)
@@ -27,7 +27,7 @@ int main(int argc, char** argv)
 		start_time = time();
 		//printf("%lu\n", start_time);
 		write(STDOUT_FILENO, prompt, 1024);
-		count_read = read(STDIN_FILENO, buf, 1024);
+		count_read = read(STDIN_FILENO, buf, 10);
 		if (count_read < 0)
 		{
 			exit(1);
@@ -46,10 +46,12 @@ int main(int argc, char** argv)
 			ptr = &buf[count_write];
 		} while (count_write != count_read);
 		
-		write(STDOUT_FILENO, "\n", 1024);
-		//printf("\n");		
+		write(STDOUT_FILENO, "\n", 10);	
 		
 		input_time = time() - start_time;
+
+		input_time = input_time / 100;
+		//timeFrac[0] = 
 		//start_time = time();
 		
 		/*count_itoa = 0;
