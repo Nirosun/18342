@@ -10,16 +10,15 @@ extern unsigned long os_time;
 
 void C_Irq_Handler()
 {
-#ifdef debug
-	printf("enter C_Irq_Handler. \n");
-#endif
-	//int ossr = reg_read(OSTMR_OSSR_ADDR);
 	int icpr = reg_read(INT_ICIP_ADDR);
 	uint32_t mask = 0x1 << INT_OSTMR_0;
 
-	uint32_t ossr, clocks_till_interrupt = 0;
+#ifdef debug
+	printf("enter C_Irq_Handler. \n");
+#endif
 
- 	//if((ossr & OSTMR_OSSR_M0) && (icpr & 0x01 << INT_OSTMR_0))
+	uint32_t new_timmer = 0;
+
  	if(icpr & mask)
  	{
  	#ifdef debug
@@ -28,15 +27,11 @@ void C_Irq_Handler()
 
  		os_time ++;	
 
- 		clocks_till_interrupt = reg_read(OSTMR_OSMR_ADDR(0));
-		clocks_till_interrupt += (OSTMR_FREQ*10)/1000;
-		reg_write(OSTMR_OSMR_ADDR(0), clocks_till_interrupt);
+ 		new_timmer = reg_read(OSTMR_OSMR_ADDR(0));
+		new_timmer += (OSTMR_FREQ*10)/1000;
+		reg_write(OSTMR_OSMR_ADDR(0), new_timmer);
 
-		ossr = reg_read(OSTMR_OSSR_ADDR);
-		ossr |= OSTMR_OSSR_M0;
-		reg_write(OSTMR_OSSR_ADDR, ossr);
-
-		ossr = reg_read(OSTMR_OSSR_ADDR);
+		/* restart */
  		reg_write(OSTMR_OSCR_ADDR, 0x00);
  		reg_set(OSTMR_OSSR_ADDR, OSTMR_OSSR_M0);
  	}

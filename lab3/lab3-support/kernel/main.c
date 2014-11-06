@@ -13,7 +13,7 @@
 void Install_Handler(unsigned *swi_vec_addr, unsigned *swi_handler_new, unsigned *swi_old_inst);
 void Restore_Handler(unsigned *swi_vec_addr, unsigned *swi_old_inst);
 unsigned S_Handler();
-unsigned Irq_Handler();
+unsigned irq_handler();
 int Load_User();
 void init_irq();
 void init_os_time();
@@ -40,31 +40,16 @@ int kmain(int argc, char** argv, uint32_t table)
 	int ret_val;
 
 	swi_handler_new = (unsigned *)&S_Handler;
-	irq_handler_new = (unsigned *)&Irq_Handler;
+	irq_handler_new = (unsigned *)&irq_handler;
 	printf("irq_handler_new:%p\n", irq_handler_new);
-	
-#ifdef debug
-	printf("Before install handler. irq_vector_table: %p\n", irq_vec_addr);
-#endif
 
 	// install new handler
 	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);
 	Install_Handler(irq_vec_addr, irq_handler_new, irq_old_inst);
 
-#ifdef debug
-	printf("After install handler. \n");
-#endif
-#ifdef debug
-	printf("Before initializations. \n");
-#endif
-
 	// initialization
 	init_irq();
 	init_os_time();
-
-#ifdef debug
-	printf("After initializations. \n");
-#endif
 
 	ret_val = Load_User(argc, argv);
 

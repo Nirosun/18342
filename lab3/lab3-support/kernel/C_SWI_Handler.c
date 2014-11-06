@@ -34,7 +34,7 @@ void C_SWI_Handler (unsigned swi_num, unsigned *regs)
 		sleep((unsigned int)regs[0]);
 		break;
 	default:
-		printf("Error: swi not implemented: %x\n", swi_num);
+		printf("Error: undefined swi number: %x\n", swi_num);
 		exit(0x0badc0de);
 	}
 
