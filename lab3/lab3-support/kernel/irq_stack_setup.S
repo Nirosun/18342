@@ -5,11 +5,13 @@
 
 irq_stack_setup:
 	mrs ip, cpsr
+	bic ip, ip, #0x80	@ enable irq
+	mov r2, ip
+
+	bic	ip, ip, #0x1f
 	orr ip, ip, #0x12
-	msr cpsr, ip 		@ change to IRQ mode
-	ldr sp, [r0]		@ allocate irq_sp to irq_stack
-	mrs ip, cpsr
-	orr ip, ip, #0x13
-	bic ip, ip, #0x80	@ enable IRQ
-	msr cpsr, ip 		@ change back to svc mode
+	msr cpsr, ip
+	
+	mov sp, r0
+	msr cpsr, r2
 	mov pc, lr

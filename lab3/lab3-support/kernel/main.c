@@ -8,6 +8,8 @@
 #include <arm/interrupt.h>
 #include <arm/timer.h>
 
+#include "constant.h"
+
 void Install_Handler(unsigned *swi_vec_addr, unsigned *swi_handler_new, unsigned *swi_old_inst);
 void Restore_Handler(unsigned *swi_vec_addr, unsigned *swi_old_inst);
 unsigned S_Handler();
@@ -15,8 +17,6 @@ unsigned Irq_Handler();
 int Load_User();
 void init_irq();
 void init_os_time();
-
-#define stack_base	0xa3000000
 
 uint32_t global_data;
 
@@ -33,6 +33,7 @@ int kmain(int argc, char** argv, uint32_t table)
 	
 	// first two instructions in old swi handler
 	unsigned swi_old_inst[2];	
+
 	// hold original irq handler
 	unsigned irq_old_inst[2];
 
@@ -40,27 +41,31 @@ int kmain(int argc, char** argv, uint32_t table)
 
 	swi_handler_new = (unsigned *)&S_Handler;
 	irq_handler_new = (unsigned *)&Irq_Handler;
+	printf("irq_handler_new:%p\n", irq_handler_new);
 	
-
-	printf("Before install handler. \n");
+#ifdef debug
+	printf("Before install handler. irq_vector_table: %p\n", irq_vec_addr);
+#endif
 
 	// install new handler
 	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);
 	Install_Handler(irq_vec_addr, irq_handler_new, irq_old_inst);
 
+#ifdef debug
 	printf("After install handler. \n");
-
-
-
+#endif
+#ifdef debug
 	printf("Before initializations. \n");
+#endif
 
 	// initialization
 	init_irq();
 	init_os_time();
 
+#ifdef debug
 	printf("After initializations. \n");
+#endif
 
-	// init user args to stack, change oldsp_addr
 	ret_val = Load_User(argc, argv);
 
 	// restore old swi handler

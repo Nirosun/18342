@@ -10,13 +10,21 @@ extern unsigned long os_time;
 
 void C_Irq_Handler()
 {
- 	if((reg_read(OSTMR_OSSR_ADDR) & OSTMR_OSSR_M0) && (reg_read(INT_ICPR_ADDR) >> INT_OSTMR_0))
+//#ifdef debug
+	printf("enter C_Irq_Handler. \n");
+//#endif
+	int ossr = reg_read(OSTMR_OSSR_ADDR);
+	int icpr = reg_read(INT_ICPR_ADDR);
+ 	if((ossr & OSTMR_OSSR_M0) && (icpr & 0x01 << INT_OSTMR_0))
  	{
- 		os_time += 10;	
-
- 		reg_write(OSTMR_OSMR_ADDR(0), reg_read(OSTMR_OSMR_ADDR(0)) + 32500);
- 	
+ 		printf("right irq source (mo). inside C_Irq_Handler. \n");
+ 		os_time ++;	
+ 		reg_write(OSTMR_OSCR_ADDR, 0x00);
  		reg_set(OSTMR_OSSR_ADDR, OSTMR_OSSR_M0);
+ 	}
+ 	else
+ 	{
+ 		printf("wrong irq source! () \n");
  	}
  	return;
  }

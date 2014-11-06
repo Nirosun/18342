@@ -6,20 +6,18 @@
 #include <arm/psr.h>
 #include <arm/interrupt.h>
 #include <exports.h>
+#include "constant.h"
 
-void irq_stack_setup(void * stack);
+void irq_stack_setup(unsigned long stack);
 
 void init_irq()
 {
-	void * irq_stack = (void *)(0xa3f00000 + 0x200); // 512 bytes
+	void * irq_stack_block = (void *)malloc(irq_stack_size); // 512 bytes
+	//unsigned long irq_Stack = (unsigned long)(irq_stack_block+512);
 
-	reg_write(INT_ICLR_ADDR, 0x0); // ignore FIQ
-	//reg_set(INT_ICMR_ADDR, 0x4000000); // only interrupt from OSMR0=OSCR unmarked
-	reg_write(INT_ICMR_ADDR, 1 << INT_OSTMR_0);
-	//reg_write(INT_ICPR_ADDR, 0x0); // clear pending reg
-	printf("1st check point"); 
+	reg_clear(INT_ICLR_ADDR, 1 << INT_OSTMR_0); // ignore FIQ
+	reg_set(INT_ICMR_ADDR, 1 << INT_OSTMR_0);
 
 	// irq sp: setup sp in irq mode
-    irq_stack_setup(irq_stack); 
-    printf("2nd check point");
+    irq_stack_setup((unsigned long)irq_stack_block+512); 
 }
