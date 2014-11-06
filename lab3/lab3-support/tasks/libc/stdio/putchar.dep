@@ -1,0 +1,21 @@
+ \
+ /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/stdio/putchar.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/stdio/putchar.c \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/stdio.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/stdarg.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/sys/types.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/types.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/unistd.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/fileno.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/stdio.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/stdarg.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/sys/types.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/types.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/unistd.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/fileno.h:

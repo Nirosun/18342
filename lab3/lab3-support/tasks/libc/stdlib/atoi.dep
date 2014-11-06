@@ -1,0 +1,11 @@
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/stdlib/atoi.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/stdlib/atoi.c \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/stdlib.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/ctype.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/inline.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/stdlib.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/ctype.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/inline.h:

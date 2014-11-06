@@ -1,0 +1,8 @@
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/swi/sleep.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/swi/sleep.S \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/asm.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/swi.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/asm.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/swi.h:

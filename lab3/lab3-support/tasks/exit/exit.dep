@@ -1,0 +1,5 @@
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/exit/exit.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/tasks/exit/exit.S \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/swi.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/swi.h:

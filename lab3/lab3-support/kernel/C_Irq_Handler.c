@@ -5,6 +5,7 @@
 #include <arm/timer.h>
 #include <arm/reg.h>
 #include <arm/interrupt.h>
+#include "constant.h"
 
 extern unsigned long os_time;
 
@@ -28,7 +29,7 @@ void C_Irq_Handler()
  		os_time ++;	
 
  		new_timmer = reg_read(OSTMR_OSMR_ADDR(0));
-		new_timmer += (OSTMR_FREQ*10)/1000;
+		new_timmer += (osmr_value*10)/1000;
 		reg_write(OSTMR_OSMR_ADDR(0), new_timmer);
 
 		/* restart */

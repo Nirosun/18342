@@ -14,16 +14,15 @@ S_Handler:
 	ldr r12, =global_data
 	ldr r8, [r12]
 
-	@enable irq
+	@_enable_irq
 	bic r12, r12, #0x80
 	msr cpsr, r12
-	@bl	_enable_irq
 
 	mrs	r2, spsr
 	str	r2, [sp, #14*4]
 	mov	r1, sp
 
-	@ extract swi number
+	@ swi number
 	ldr	r0, [lr, #-4]
 	bic	r0, r0, #0xff000000
 	bl	C_SWI_Handler

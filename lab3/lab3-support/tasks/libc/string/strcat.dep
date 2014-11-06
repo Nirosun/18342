@@ -1,0 +1,12 @@
+ \
+ /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/string/strcat.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/string/strcat.c \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/string.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/sys/types.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/types.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/string.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/sys/types.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/tasks/libc/include/bits/types.h:
