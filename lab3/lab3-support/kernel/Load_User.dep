@@ -1,0 +1,8 @@
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/Load_User.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/kernel/Load_User.S \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/bits/swi.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/bits/addrno.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/bits/swi.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/bits/addrno.h:

@@ -10,6 +10,14 @@
 S_Handler:
 	sub	sp, sp, #4
 	stmfd	sp!, {r0-r12, lr}	
+	
+	ldr r12, =global_data
+	ldr r8, [r12]
+
+	@enable irq
+	bic r12, r12, #0x80
+	msr cpsr, r12
+
 	mrs	r2, spsr
 	str	r2, [sp, #14*4]
 	mov	r1, sp

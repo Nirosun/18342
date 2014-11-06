@@ -1,0 +1,17 @@
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/arm/reg.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/kernel/arm/reg.c \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/types.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/reg.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/inline.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/timer.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/interrupt.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/types.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/reg.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/inline.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/timer.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/interrupt.h:

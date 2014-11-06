@@ -12,13 +12,13 @@ int main(int argc, char** argv)
 	while(1)
 	{
 		write(STDOUT_FILENO, "\r|",2);
-		sleep(200);
+		sleep(20);
 		write(STDOUT_FILENO, "\r/",2);
-		sleep(200);
+		sleep(20);
 		write(STDOUT_FILENO, "\r-",2);
-		sleep(200);
+		sleep(20);
 		write(STDOUT_FILENO, "\r\\",2);
-		sleep(200);
+		sleep(20);
 	}
 	return 0;
 }

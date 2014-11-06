@@ -9,7 +9,7 @@
 
 #define TIME_RESOLUTION	10 // 10 ms
 
-volatile unsigned long os_time = 1;
+volatile unsigned long os_time = 0;
 
  void init_os_time()
  {
@@ -22,14 +22,22 @@ volatile unsigned long os_time = 1;
 	//reg_clear(INT_ICLR_ADDR, 1 << INT_OSTMR_0);
 	
 	// match oscr against osmr0
-	reg_set(INT_ICMR_ADDR, 1 << INT_OSTMR_0);
+	//reg_set(INT_ICMR_ADDR, 1 << INT_OSTMR_0);
 	
 	// set the matched value in osmr0
-	reg_write(OSTMR_OSMR_ADDR(0), 32500);
+	//reg_write(OSTMR_OSMR_ADDR(0), 32500);
 	
 	// let oscr count from 0
-	reg_write(OSTMR_OSCR_ADDR, 0);
+	//reg_write(OSTMR_OSCR_ADDR, 0);
 	
 	// let oscr count from beginning
-	reg_set(OSTMR_OIER_ADDR, OSTMR_OIER_E0);
+	//reg_set(OSTMR_OIER_ADDR, OSTMR_OIER_E0);
+ 	reg_write(OSTMR_OSCR_ADDR, 0x0);
+
+	reg_write(OSTMR_OSMR_ADDR(0), 32500);
+
+	/* Activating OIER 0 */
+	uint32_t oier_register = reg_read(OSTMR_OIER_ADDR);
+	oier_register = oier_register | OSTMR_OIER_E0;
+	reg_write(OSTMR_OIER_ADDR, oier_register);
  }

@@ -1,0 +1,38 @@
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/main.o:  \
+ /home/yang/Workspace/embedded/lab3/lab3-support/kernel/main.c \
+  /home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/exports.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/types.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/stdarg.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/_exports.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/bits/swi.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/bits/fileno.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/psr.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/inline.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/exception.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/interrupt.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/timer.h \
+  /home/yang/Workspace/embedded/lab3/lab3-support/kernel/constant.h
+
+/home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/exports.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/types.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/stdarg.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/uboot/include/_exports.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/bits/swi.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/bits/fileno.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/psr.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/inline.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/exception.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/interrupt.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/include/arm/timer.h:
+
+/home/yang/Workspace/embedded/lab3/lab3-support/kernel/constant.h:
