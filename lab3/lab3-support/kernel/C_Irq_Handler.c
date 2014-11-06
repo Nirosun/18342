@@ -18,7 +18,7 @@ void C_Irq_Handler()
 	printf("enter C_Irq_Handler. \n");
 #endif
 
-	uint32_t new_timmer = 0;
+	//uint32_t new_timmer = 0;
 
  	if(icpr & mask)
  	{
@@ -28,9 +28,9 @@ void C_Irq_Handler()
 
  		os_time ++;	 // 10 ms
 
- 		new_timmer = reg_read(OSTMR_OSMR_ADDR(0));
-		new_timmer += (osmr_value*10)/1000;	// 10 ms
-		reg_write(OSTMR_OSMR_ADDR(0), new_timmer);
+ 		//new_timmer = reg_read(OSTMR_OSMR_ADDR(0));
+		//new_timmer += (osmr_value*10)/1000;	// 10 ms
+		//reg_write(OSTMR_OSMR_ADDR(0), new_timmer);
 
 		/* restart */
  		reg_write(OSTMR_OSCR_ADDR, 0x00);

@@ -12,7 +12,7 @@ extern volatile unsigned int os_time;
  	printf("sleeping...\n");
  #endif
 
- 	unsigned int finish_time = os_time + (time/10);
+ 	unsigned int finish_time = os_time + time;
  	while (os_time < finish_time);
  		// do nothing, wait
  	return;
