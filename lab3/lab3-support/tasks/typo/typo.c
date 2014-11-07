@@ -52,10 +52,7 @@ int main(int argc, char** argv)
 		
 		// print time
 		input_time = time() - start_time;
-
 		input_time = input_time / 100;
-		//timeFrac[0] = 
-		//start_time = time();
 		
 		int count_itoa = 0;
 		char timeStr[LINE_SIZE];

@@ -1,0 +1,23 @@
+/home/niro/lab/labs/lab3/lab3-support/tasks/typo/typo.o:  \
+ /home/niro/lab/labs/lab3/lab3-support/tasks/typo/typo.c \
+  /home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/bits/fileno.h \
+  /home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/stdlib.h \
+  /home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/unistd.h \
+  /home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/sys/types.h \
+  /home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/bits/types.h \
+  /home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/stdio.h \
+  /home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/stdarg.h
+
+/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/bits/fileno.h:
+
+/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/stdlib.h:
+
+/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/unistd.h:
+
+/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/sys/types.h:
+
+/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/bits/types.h:
+
+/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/stdio.h:
+
+/home/niro/lab/labs/lab3/lab3-support/tasks/libc/include/stdarg.h:
