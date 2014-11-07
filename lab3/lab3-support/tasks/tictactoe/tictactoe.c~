@@ -1,6 +1,6 @@
 /** @file tictactoe.c
  *
- * @brief Play tic-tac-toe
+ * @brief Play the tic-tac-toe game
  *
  * Links to libc.
  */
@@ -36,7 +36,9 @@ int main(int argc, char** argv)
 	{
 		write(STDOUT_FILENO, gridExample[j], LINE_SIZE);
 	}	
-	write(STDOUT_FILENO, "Have fun!\n", LINE_SIZE);
+	write(STDOUT_FILENO, "The game will begin in 3 seconds.\n", LINE_SIZE);
+
+	sleep (300);	// 3 seconds for preparing :)
 
 	while (1)
 	{
@@ -167,6 +169,8 @@ int main(int argc, char** argv)
 			printf("Draw. Game ends.\n");
 			break;			
 		}
+
+		sleep(100);	// take a brief rest between two rounds.
 	}
 
 	return 0;
