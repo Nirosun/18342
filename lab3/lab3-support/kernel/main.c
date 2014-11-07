@@ -16,6 +16,7 @@ unsigned S_Handler();
 unsigned irq_handler();
 int Load_User();
 void init_irq();
+void _disable_irq();
 void init_os_time();
 
 uint32_t global_data;
@@ -52,6 +53,8 @@ int kmain(int argc, char** argv, uint32_t table)
 	init_os_time();
 
 	ret_val = Load_User(argc, argv);
+
+	_disable_irq();
 
 	// restore old swi handler
 	Restore_Handler(swi_vec_addr, swi_old_inst);
