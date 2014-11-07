@@ -1,6 +1,6 @@
 /** @file led.c
  *
- * @brief 
+ * @brief print two ascii arts ("hello" and "")
  *
  * Links to libc.
  */
@@ -8,28 +8,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-//#include <types.h>
 
-#define LINE_SIZE 30
-#define LINES 6
 #define PIC_SIZE 1024
-
-
 #define ESCAPE 0x1B
 #define BRACKET 0x5B
-
-/*void print_buf(char buf[6][5])
-{
-	int i, j;
-	for(i = 0; i < 6; i++)
-	{
-		for(j = 0; j < 5; j++)
-			printf("%c", buf[i][j]);
-		printf("\n");
-	}
-	sleep(200);
-	printf("%c%c6A", ESCAPE, BRACKET);
-}*/
 
 
 int main(int argc, char** argv)
@@ -52,10 +34,10 @@ int main(int argc, char** argv)
 	for (i = 0; i < 10; i ++)
 	{
 		write(STDOUT_FILENO, pic_1, PIC_SIZE);
-		sleep(200);
+		sleep(100);
 		printf("%c%c6A", ESCAPE, BRACKET);
 		write(STDOUT_FILENO, pic_2, PIC_SIZE);
-		sleep(200);
+		sleep(100);
 		printf("%c%c6A", ESCAPE, BRACKET);
 	}	
 	
