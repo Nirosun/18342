@@ -1,0 +1,6 @@
+PROGS_TYPO_OBJS := led.o
+PROGS_TYPO_OBJS := $(PROGS_TYPO_OBJS:%=$(TDIR)/led/%)
+ALL_OBJS += $(PROGS_TYPO_OBJS)
+
+$(TDIR)/bin/led : $(TSTART) $(PROGS_TYPO_OBJS) $(TLIBC)
+
