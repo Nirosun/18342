@@ -14,24 +14,49 @@
 #define LINES 6
 #define PIC_SIZE 1024
 
+
+#define ESCAPE 0x1B
+#define BRACKET 0x5B
+
+/*void print_buf(char buf[6][5])
+{
+	int i, j;
+	for(i = 0; i < 6; i++)
+	{
+		for(j = 0; j < 5; j++)
+			printf("%c", buf[i][j]);
+		printf("\n");
+	}
+	sleep(200);
+	printf("%c%c6A", ESCAPE, BRACKET);
+}*/
+
+
 int main(int argc, char** argv)
 {
-	char pic_1[PIC_SIZE] = 		 " _    _          _   _         \n" 
-					 "| |  | |        | | | |        \n" 
-					 "| |__| |   ___  | | | |   ___  \n"
-					 "|  __  |  / _ \\ | | | |  / _ \\ \n"
-					 "| |  | | |  __/ | | | | | (_) |\n"
-					 "|_|  |_|  \\___| |_| |_|  \\___/ ";
-	char pic_null[PIC_SIZE] = {"\r"};
-	//char onechar[2] = "\0\0";	
+	char pic_1[PIC_SIZE] = 	" _    _          _   _                         \n" 
+			       	"| |  | |        | | | |                        \n" 
+			       	"| |__| |   ___  | | | |   ___                  \n"
+			       	"|  __  |  / _ \\ | | | |  / _ \\               \n"
+			       	"| |  | | |  __/ | | | | | (_) |                \n"
+				"|_|  |_|  \\___| |_| |_|  \\___/               \n";
+	char pic_2[PIC_SIZE] =  " __          __                 _       _      \n"
+				" \\ \\        / /                | |     | |   \n"
+				"  \\ \\  /\\  / /    ___    _ __  | |   __| |  \n"
+				"   \\ \\/  \\/ /    / _ \\  | '__| | |  / _` | \n"
+				"    \\  /\\  /    | (_) | | |    | | | (_| |   \n"
+				"     \\/  \\/      \\___/  |_|    |_|  \\__,_| \n";
+	
 	
 	int i;
 	for (i = 0; i < 10; i ++)
 	{
 		write(STDOUT_FILENO, pic_1, PIC_SIZE);
-		sleep(100);
-		write(STDOUT_FILENO, pic_null, PIC_SIZE);
-		sleep(100);
+		sleep(200);
+		printf("%c%c6A", ESCAPE, BRACKET);
+		write(STDOUT_FILENO, pic_2, PIC_SIZE);
+		sleep(200);
+		printf("%c%c6A", ESCAPE, BRACKET);
 	}	
 	
 	return 0;
