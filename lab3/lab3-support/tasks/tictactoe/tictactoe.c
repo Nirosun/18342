@@ -11,29 +11,42 @@
 //#include <types.h>
 
 #define LINE_SIZE 80
-#define TIME_LIMIT 10
+#define TIME_LIMIT 20
 
 int main(int argc, char** argv)
 {
-	write(STDOUT_FILENO, "This is a tic-tac-toe game, have fun.\n", 50);
 
 	char grid[5][LINE_SIZE] = {"   |   |   \n",
 			   "---+---+---\n",
                            "   |   |   \n",
                            "---+---+---\n",
                            "   |   |   \n"};
+	char gridExample[5][LINE_SIZE] = {" 1 | 2 | 3 \n",
+			   "---+---+---\n",
+                           " 4 | 5 | 6 \n",
+                           "---+---+---\n",
+                           " 7 | 8 | 9 \n"};
 	char cnum[LINE_SIZE] = "0";
-	//int xs[9] = {0};
-	//int os[9] = {0};
 	int xandos[2][9] = {{0}, {0}};
 	int rounds = 1;
 	int isEnd = 0;
 	int isOverTime = 0;
 	unsigned long time_limit = TIME_LIMIT;
 
+	write(STDOUT_FILENO, "This is a tic-tac-toe game.\n", LINE_SIZE);
+	write(STDOUT_FILENO, "The example of input number is: \n", LINE_SIZE);
+
+	int j;
+	for (j = 0; j < 5; j ++)
+	{
+		write(STDOUT_FILENO, gridExample[j], LINE_SIZE);
+	}	
+	write(STDOUT_FILENO, "Have fun!\n", LINE_SIZE);
+
 	while (isEnd == 0)
 	{
 		int playID = (rounds % 2 == 1) ? 1 : 2;
+		int id = playID - 1;
 		int isCorrectInput = 0;
 		unsigned long time_start = time() / 1000;
 		unsigned long time_input = 0;
@@ -71,7 +84,6 @@ int main(int argc, char** argv)
 			}
 
 			char mark = (playID == 1) ? 'x' : 'o';
-			int id = playID - 1;
 			xandos[id][cnum[0]-'1'] = 1;
 
 			switch (cnum[0])
@@ -127,11 +139,29 @@ int main(int argc, char** argv)
 			if (xandos[id][i] && xandos[id][i+1] && xandos[id][i+2])
 			{
 				isWin = 1;
+				break;
 			}
 		}
-		for (i = 0; i < 3; i ++)
+		if (!isWin) {
+			for (i = 0; i < 3; i ++)
+			{
+				if (xandos[id][i] && xandos[id][i+3] && xandos[id][i+6])
+				{
+					isWin = 1;
+					break;
+				}
+			}
+		}
+		if (!isWin && ((xandos[id][0] && xandos[id][4] && xandos[id][8]) 
+			|| (xandos[id][2] && xandos[id][4] && xandos[id][6])))
 		{
-			if (xandos[id][i] && xandos[id][i+3] && xandos[id][i+6])
+			isWin = 1;
+		}
+
+		if (isWin)
+		{
+			printf("Player %d wins! Game ends.\n", playID);
+			break;
 		}
 
 		rounds ++;
