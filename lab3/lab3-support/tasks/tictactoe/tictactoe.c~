@@ -23,8 +23,9 @@ int main(int argc, char** argv)
                            "---+---+---\n",
                            "   |   |   \n"};
 	char cnum[LINE_SIZE] = "0";
-	int xs[9] = {0};
-	int os[9] = {0};
+	//int xs[9] = {0};
+	//int os[9] = {0};
+	int xandos[2][9] = {{0}, {0}};
 	int rounds = 1;
 	int isEnd = 0;
 	int isOverTime = 0;
@@ -38,7 +39,7 @@ int main(int argc, char** argv)
 		unsigned long time_input = 0;
 
 		printf("**** Player %d ****\n", playID);
-		printf("The time limit for this round is: %lu\n", time_limit);
+		printf("The time limit for this round is: %lus\n", time_limit);
 		while (!isCorrectInput)
 		{
 			write(STDOUT_FILENO, "Please input a number: ", LINE_SIZE);
@@ -46,7 +47,7 @@ int main(int argc, char** argv)
 
 			if (cnum[0] >= '1' && cnum[0] <= '9')
 			{
-				if (xs[cnum[0]-'1'] || os[cnum[0]-'1'])
+				if (xandos[0][cnum[0]-'1'] || xandos[1][cnum[0]-'1'])
 				{
 					write(STDOUT_FILENO, "The position is already occupied! Please input again.\n", LINE_SIZE);
 					continue;					
@@ -69,17 +70,9 @@ int main(int argc, char** argv)
 				break;
 			}
 
-			char mark = (rounds % 2 == 0) ? 'x' : 'o';
-			if (rounds % 2 == 0)
-			{
-				mark = 'x';
-				xs[cnum[0] - '1'] = 1;
-			}
-			else
-			{
-				mark = 'o';
-				os[cnum[0] - '1'] = 1;
-			}
+			char mark = (playID == 1) ? 'x' : 'o';
+			int id = playID - 1;
+			xandos[id][cnum[0]-'1'] = 1;
 
 			switch (cnum[0])
 			{
@@ -126,6 +119,19 @@ int main(int argc, char** argv)
 		for (i = 0; i < 5; i ++)
 		{
 			write(STDOUT_FILENO, grid[i], LINE_SIZE);
+		}
+		
+		int isWin = 0;
+		for (i = 0; i < 9; i += 3)
+		{
+			if (xandos[id][i] && xandos[id][i+1] && xandos[id][i+2])
+			{
+				isWin = 1;
+			}
+		}
+		for (i = 0; i < 3; i ++)
+		{
+			
 		}
 
 		rounds ++;

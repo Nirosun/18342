@@ -47,7 +47,6 @@ int main(int argc, char** argv)
 				"    \\  /\\  /    | (_) | | |    | | | (_| |   \n"
 				"     \\/  \\/      \\___/  |_|    |_|  \\__,_| \n";
 	
-	//char onechar[2] = "\0\0";	
 	
 	int i;
 	for (i = 0; i < 10; i ++)

@@ -52,10 +52,10 @@ int main(int argc, char** argv)
 	for (i = 0; i < 10; i ++)
 	{
 		write(STDOUT_FILENO, pic_1, PIC_SIZE);
-		sleep(200);
+		sleep(100);
 		printf("%c%c6A", ESCAPE, BRACKET);
 		write(STDOUT_FILENO, pic_2, PIC_SIZE);
-		sleep(200);
+		sleep(100);
 		printf("%c%c6A", ESCAPE, BRACKET);
 	}	
 	
