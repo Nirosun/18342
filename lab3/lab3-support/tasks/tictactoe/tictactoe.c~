@@ -1,6 +1,10 @@
 /** @file tictactoe.c
  *
- * @brief Play the tic-tac-toe game
+ * @brief Play the tic-tac-toe game. The system calls (read, 
+ * write, sleep, time) are used in this program. This game is 
+ * designed for two players. In every round the player input a
+ * number to indicate  in which grid he/she wants to put a naught 
+ * or cross. 
  *
  * Links to libc.
  */
@@ -169,8 +173,6 @@ int main(int argc, char** argv)
 			printf("Draw. Game ends.\n");
 			break;			
 		}
-
-		sleep(100);	// take a brief rest between two rounds.
 	}
 
 	return 0;
