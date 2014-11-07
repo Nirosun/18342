@@ -8,7 +8,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-//#include <types.h>
 
 #define LINE_SIZE 80
 #define TIME_LIMIT 20
@@ -26,30 +25,30 @@ int main(int argc, char** argv)
                            " 4 | 5 | 6 \n",
                            "---+---+---\n",
                            " 7 | 8 | 9 \n"};
-	char cnum[LINE_SIZE] = "0";
-	int xandos[2][9] = {{0}, {0}};
-	int rounds = 1;
-	int isEnd = 0;
-	int isOverTime = 0;
-	unsigned long time_limit = TIME_LIMIT;
+	int xandos[2][9] = {{0}, {0}};	// mark if grids are marked as 'x' or 'o'
+	int rounds = 1;	 
+	int j;
+	unsigned long time_limit = TIME_LIMIT;	
 
 	write(STDOUT_FILENO, "This is a tic-tac-toe game.\n", LINE_SIZE);
 	write(STDOUT_FILENO, "The example of input number is: \n", LINE_SIZE);
-
-	int j;
 	for (j = 0; j < 5; j ++)
 	{
-		write(STDOUT_FILENO, gridExample[i], LINE_SIZE);
+		write(STDOUT_FILENO, gridExample[j], LINE_SIZE);
 	}	
 	write(STDOUT_FILENO, "Have fun!\n", LINE_SIZE);
 
-	while (isEnd == 0)
+	while (1)
 	{
 		int playID = (rounds % 2 == 1) ? 1 : 2;
 		int id = playID - 1;
 		int isCorrectInput = 0;
+		int isOverTime = 0;	// if the player exceeds the time limit
+		int isWin = 0;		// does the player wins in this round
+		int i;		
 		unsigned long time_start = time() / 1000;
 		unsigned long time_input = 0;
+		char cnum[LINE_SIZE] = "0";
 
 		printf("**** Player %d ****\n", playID);
 		printf("The time limit for this round is: %lus\n", time_limit);
@@ -62,7 +61,7 @@ int main(int argc, char** argv)
 			{
 				if (xandos[0][cnum[0]-'1'] || xandos[1][cnum[0]-'1'])
 				{
-					write(STDOUT_FILENO, "The position is already occupied! Please input again.\n", LINE_SIZE);
+					write(STDOUT_FILENO, "Position already occupied! Please input again.\n", LINE_SIZE);
 					continue;					
 				}
 				isCorrectInput = 1;
@@ -73,7 +72,7 @@ int main(int argc, char** argv)
 				continue;
 			}
 
-			time_input = time() / 1000 - time_start;
+			time_input = time() / 1000 - time_start;	// time the user spent in one round
 			printf("You used %lus for this round.\n", time_input);
 			
 			if (time_input > time_limit)
@@ -82,10 +81,10 @@ int main(int argc, char** argv)
 				isOverTime = 1;
 				break;
 			}
-
+			
+			// mark 'x' or 'o' in grid
 			char mark = (playID == 1) ? 'x' : 'o';
 			xandos[id][cnum[0]-'1'] = 1;
-
 			switch (cnum[0])
 			{
 			case '1':
@@ -118,22 +117,20 @@ int main(int argc, char** argv)
 			default:
 				write(STDOUT_FILENO, "Shouldn't come here.\n", LINE_SIZE);
 			}
-
 		}
 		
-		if (isOverTime != 0)
+		if (isOverTime)
 		{
 			printf("Player %d wins. Game ends.\n", (playID == 1) ? 2 : 1);
 			break;
 		}
 
-		int i;
 		for (i = 0; i < 5; i ++)
 		{
 			write(STDOUT_FILENO, grid[i], LINE_SIZE);
 		}
 		
-		int isWin = 0;
+		// check if the player wins
 		for (i = 0; i < 9; i += 3)
 		{
 			if (xandos[id][i] && xandos[id][i+1] && xandos[id][i+2])
@@ -171,10 +168,6 @@ int main(int argc, char** argv)
 			break;			
 		}
 	}
-	//write(STDOUT_FILENO, "Game ends.\n", LINE_SIZE);
-
-	//write(STDOUT_FILENO, grid, 50);
-	//write(STDOUT_FILENO, "what's the wierd staff...\n", LINE_SIZE);
 
 	return 0;
 }
