@@ -1,6 +1,6 @@
 /** @file led.c
  *
- * @brief print two ascii arts ("hello" and "")
+ * @brief print two ascii arts ("HELLO" and "WORLD") alternatively
  *
  * Links to libc.
  */
@@ -10,8 +10,7 @@
 #include <stdio.h>
 
 #define PIC_SIZE 1024
-#define ESC 0x1B
-#define BRACKET 0x5B
+#define ESC 27
 
 
 int main(int argc, char** argv)
@@ -35,10 +34,10 @@ int main(int argc, char** argv)
 	{
 		write(STDOUT_FILENO, pic_1, PIC_SIZE);
 		sleep(100);
-		printf("%c%c6A", 0x1b, 0x5b);
+		printf("%c[6A", ESC);
 		write(STDOUT_FILENO, pic_2, PIC_SIZE);
 		sleep(100);
-		printf("%c%c6A", 0x1b, 0x5b);
+		printf("%c[6A", ESC);
 	}	
 	
 	return 0;
