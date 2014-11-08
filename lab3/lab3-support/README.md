@@ -1,7 +1,7 @@
-lab3 \n
-  |\n
-  |-----kernel\n
-  |\n
-  |-----task\n
-  |\n
-  |-----uboot\n
+lab3 
+  |
+  |-----kernel
+  |
+  |-----task
+  |
+  |-----uboot
