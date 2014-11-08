@@ -8,7 +8,7 @@ this is a easy game for 2 players.
 
 Player 1 uses X; while player 2 uses O.
 
-The keyboard is controled by numeric keys 0-9
+The keyboard is controled by numeric keys 0-9 + \enter
 
 Rule:
 1. win by a straight/ diagonal line with 3 nodes.
