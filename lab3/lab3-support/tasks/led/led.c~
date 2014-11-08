@@ -1,6 +1,6 @@
 /** @file led.c
  *
- * @brief print two ascii arts ("HELLO" and "WORLD")
+ * @brief print two ascii arts ("HELLO" and "WORLD") alternatively
  *
  * Links to libc.
  */
@@ -30,13 +30,13 @@ int main(int argc, char** argv)
 	
 	
 	int i;
-	for (i = 0; i < 10; i ++)
+	for (i = 0; i < 100; i ++)
 	{
 		write(STDOUT_FILENO, pic_1, PIC_SIZE);
-		sleep(100);
+		sleep(1000);
 		printf("%c[6A", ESC);
 		write(STDOUT_FILENO, pic_2, PIC_SIZE);
-		sleep(100);
+		sleep(1000);
 		printf("%c[6A", ESC);
 	}	
 	

@@ -42,7 +42,7 @@ int main(int argc, char** argv)
 	}	
 	write(STDOUT_FILENO, "The game will begin in 3 seconds.\n", LINE_SIZE);
 
-	sleep (300);	// 3 seconds for preparing :)
+	sleep (3000);	// 3 seconds for preparing :)
 
 	while (1)
 	{
