@@ -1,5 +1,10 @@
 /*
- * 
+ * @file C_Ira_Handler
+ *
+ * when the timmer triger interrupt every 10ms,
+ * jump to here: 
+ * 		1. update system time
+ *		2. fresh registers
  */
 #include <exports.h>
 #include <arm/timer.h>

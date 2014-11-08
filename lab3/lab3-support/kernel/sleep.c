@@ -1,5 +1,7 @@
 /*
- * sleep.c
+ * @ file sleep.c
+ *
+ * @ if the sys. time has not come to desired value, just wait
  */
  #include <exports.h>
  

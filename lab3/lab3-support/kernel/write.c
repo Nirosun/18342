@@ -14,17 +14,15 @@ ssize_t write (int fd, const void *buf, size_t count)
 	char *cbuf = (char *)buf;
 	int i;
 
-	//printf("Entering write.\n");
-
 	if (fd != STDOUT_FILENO)
 	{
-		//printf("Error: wrong file number\n");
+		printf("Error: wrong file number\n");
 		return -EBADF;
 	}
 	if ((unsigned)cbuf < 0xa0000000 
 		|| ((unsigned)cbuf + count > 0xa3ffffff))
 	{
-		//printf("Error: bad address\n");		
+		printf("Error: bad address\n");		
 		return -EFAULT;
 	}
 
@@ -32,9 +30,6 @@ ssize_t write (int fd, const void *buf, size_t count)
 	{
 		putc(cbuf[i]);
 	}
-	//putc('\n');
-
-	//printf("Leaving write.\n");
 
 	return i;
 }

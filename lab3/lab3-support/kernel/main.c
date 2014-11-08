@@ -48,12 +48,13 @@ int kmain(int argc, char** argv, uint32_t table)
 	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);
 	Install_Handler(irq_vec_addr, irq_handler_new, irq_old_inst);
 
-	// initialization
+	// initialize irq and system time
 	init_irq();
 	init_os_time();
 
 	ret_val = Load_User(argc, argv);
 
+	// disable irq after come back from user program. So kernel can keep work
 	_disable_irq();
 
 	// restore old swi handler

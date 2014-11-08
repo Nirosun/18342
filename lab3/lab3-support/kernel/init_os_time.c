@@ -1,5 +1,7 @@
 /*
- * initialize os timer
+ * @file init_os_time.c
+ *
+ * initialize os timer registers
  */
 #include <types.h>
 #include <arm/timer.h>

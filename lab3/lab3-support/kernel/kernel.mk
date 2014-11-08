@@ -17,4 +17,3 @@ ALL_CLOBBERS += $(KERNEL) $(KERNEL).bin
 $(KERNEL): $(KSTART) $(KOBJS) $(AOBJS) $(UOBJS)
 	echo LD $(notdir $@)
 	$(LD) -static $(LDFLAGS) -o $@ $^ $(LIBGCC)
-

@@ -1,7 +1,7 @@
 /*
- * Irq handler: from sys. to user mode
+ * @file irq_handler.S -from sys. to user mode
  * 
- * function: save sp and jump to C_Irq_Handler
+ * save sp and jump to C_Irq_Handler
  * the only difference with S_Handler (temporary) is 
  * no arguments: SWI_Num, Stack pointer
  */

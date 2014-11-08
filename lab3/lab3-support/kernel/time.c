@@ -5,7 +5,8 @@ extern volatile unsigned long os_time;
 
 size_t time()
 {
-	//printf("os_time in time: %lu\n", os_time);
-
+	/*
+	 * return the volatile system time. unit:second
+	 */
 	return os_time * ((unsigned long)10);
 }
