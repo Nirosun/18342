@@ -1,0 +1,17 @@
++-----------------------+
+	GAME TIME!		
+			
+	tictactoe	
++-----------------------+
+
+this is a easy game for 2 players.
+
+Player 1 uses X; while player 2 uses O.
+
+The keyboard is controled by numeric keys 0-9
+
+Rule:
+1. win by a straight/ diagonal line with 3 nodes.
+2. a move takes more than 20 seconds will be judged lose after entering.
+
+Have Fun!
