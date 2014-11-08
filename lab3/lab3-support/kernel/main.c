@@ -42,7 +42,6 @@ int kmain(int argc, char** argv, uint32_t table)
 
 	swi_handler_new = (unsigned *)&S_Handler;
 	irq_handler_new = (unsigned *)&irq_handler;
-	printf("irq_handler_new:%p\n", irq_handler_new);
 
 	// install new handler
 	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);

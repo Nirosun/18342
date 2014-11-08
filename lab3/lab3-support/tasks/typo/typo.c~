@@ -20,15 +20,13 @@ int main(int argc, char** argv)
 	unsigned long start_time = 0;
 	unsigned long input_time = 0;
 	char prompt[LINE_SIZE] = "> ";
-	//char timeInt[10];
-	//char timeFrac[10];
-	//int count_itoa;
 
 	while (1)
 	{
 		start_time = time();
-		//printf("%lu\n", start_time);
 		write(STDOUT_FILENO, prompt, LINE_SIZE);
+
+		// echo characters
 		count_read = read(STDIN_FILENO, buf, LINE_SIZE);
 		if (count_read < 0)
 		{
@@ -50,24 +48,21 @@ int main(int argc, char** argv)
 		count_write = -1;
 		write(STDOUT_FILENO, "\n", LINE_SIZE);	
 		
-		// print time
+		// calculate and print time
 		input_time = time() - start_time;
 		input_time = input_time / 100;
-		//start_time = time();
 		
-		int count_itoa = 0;
-		char timeStr[LINE_SIZE];
-		char timeInt[LINE_SIZE];
-		char timeFrac[LINE_SIZE];
-		//printf("Time: %lu\n", input_time);		
+		int count_itoa = 0;	// length of string that shows time
+		char timeStr[LINE_SIZE];	// string that shows time
+		char timeInt[LINE_SIZE];	// integer part of time
+		char timeFrac[LINE_SIZE];	// fraction part of time
 		
+		// transfer time to strings for output
 		do
 		{
        			timeStr[count_itoa++] = input_time % 10 + '0';
 		}while ((input_time /= 10) > 0);
 		timeStr[count_itoa] = '\0';
-		//printf("Count: %d\n", count_itoa);
-		//printf("Time Str: %s\n", timeStr);
 		
 		if (count_itoa == 1)
 		{
@@ -86,9 +81,6 @@ int main(int argc, char** argv)
 			timeFrac[0] = timeStr[0];
 			timeFrac[1] = '\0';
 		}
-		
-		//printf("Int: %s\n", timeInt);
-		//printf("Frac: %s\n", timeFrac);
 		
 		write(STDOUT_FILENO, timeInt, LINE_SIZE);
 		write(STDOUT_FILENO, ".", LINE_SIZE);

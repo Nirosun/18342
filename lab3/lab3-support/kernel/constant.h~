@@ -2,7 +2,7 @@
  * constant.h: Some important constants used in kernel.
  *
  * Author: Zhengyang Zuo <zzuo@andrew.cmu.edu>
- *         Yang Wu <yangwu@andrew.cmu.edu>
+           Yang Wu <yangwu@andrew.cmu.edu>
  * Date:   Fri, 7 Nov 2014 08:54 PM
  */
 

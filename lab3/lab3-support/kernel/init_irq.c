@@ -28,9 +28,9 @@ void init_irq()
 	void * irq_stack_block = (void *)malloc(irq_stack_size); // 1024 bytes
 
 	// irq sp: setup sp in irq mode
-    _irq_stack_setup((unsigned long)irq_stack_block+1024); 
+	_irq_stack_setup((unsigned long)irq_stack_block+1024); 
     
-    _enable_irq();
+	_enable_irq();
 
     return;
 }
