@@ -32,7 +32,7 @@ unsigned long time_syscall(void)
  */
 void sleep_syscall(unsigned long millis  __attribute__((unused)))
 {	
- 	unsigned int finish_time = os_time + millis / OS_TIMER_RESOLUTION;
+ 	unsigned int finish_time = os_time + millis / TIME_RESOLUTION;
  	while (os_time < finish_time);
  		// do nothing, wait
  	return;

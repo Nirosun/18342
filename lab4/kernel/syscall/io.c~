@@ -93,27 +93,8 @@ ssize_t read_syscall(int fd __attribute__((unused)), void *buf __attribute__((un
 /* Write count bytes to fd from the buffer buf. */
 ssize_t write_syscall(int fd  __attribute__((unused)), const void *buf  __attribute__((unused)), size_t count  __attribute__((unused)))
 {
-	char *cbuf = (char *)buf;
-	int i;
 
-	if (fd != STDOUT_FILENO)
-	{
-		printf("Error: wrong file number\n");
-		return -EBADF;
-	}
-	if ((unsigned)cbuf < 0xa0000000 
-		|| ((unsigned)cbuf + count > 0xa3ffffff))
-	{
-		printf("Error: bad address\n");		
-		return -EFAULT;
-	}
-
-	for (i = 0; i < (int)count && cbuf[i] != '\0'; i ++)
-	{
-		putc(cbuf[i]);
-	}
-
-	return i;
+  return 1; /* remove this return line after you have added your code here */
 	
 }
 

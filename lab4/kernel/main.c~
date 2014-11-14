@@ -1,3 +1,19 @@
+/** @file main.c
+ *
+ * @brief kernel main
+ *
+ * @author 
+ *	   
+ *	   
+ * @date   
+ */
+ 
+#include <kernel.h>
+#include <task.h>
+#include <sched.h>
+#include <device.h>
+#include <assert.h>
+
 #include <exports.h>
 
 #include <bits/swi.h>
@@ -13,19 +29,21 @@
 void Install_Handler(unsigned *swi_vec_addr, unsigned *swi_handler_new, unsigned *swi_old_inst);
 void Restore_Handler(unsigned *swi_vec_addr, unsigned *swi_old_inst);
 unsigned S_Handler();
-//unsigned irq_handler();
+unsigned irq_handler();
 int Load_User();
 void init_irq();
 void _disable_irq();
 void init_os_time();
 
+
 uint32_t global_data;
 
-int kmain(int argc, char** argv, uint32_t table)
+int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused)), uint32_t table)
 {
-	app_startup(); /* bss is valid after this point */
+
+	app_startup();
 	global_data = table;
-	
+	/* add your code up to assert statement */
 	unsigned *swi_vec_addr = (unsigned *)0x08; 	
 	unsigned *irq_vec_addr = (unsigned *)0x18; //IRQ vector entry	
 	
@@ -61,4 +79,8 @@ int kmain(int argc, char** argv, uint32_t table)
 	Restore_Handler(irq_vec_addr, irq_old_inst);
 
 	return ret_val;
+
+
+		
+	//assert(0);        /* should never get here */
 }
