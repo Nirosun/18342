@@ -58,7 +58,21 @@ static uint8_t prio_unmap_table[]  __attribute__((unused)) =
  */
 void runqueue_init(void)
 {
-	
+	int i;
+
+	group_run_bits = 0; // clear the byte for flag
+
+	// init group
+	for(i=0; i<OS_MAX_TASKS/8; i++)
+	{
+		run_bits[i] = 0;
+	}
+
+	// init every bit
+	for(i=0; i<OS_MAX_TASKS; i++)
+	{
+		run_list[i] = NULL;
+	}
 }
 
 /**
@@ -71,7 +85,15 @@ void runqueue_init(void)
  */
 void runqueue_add(tcb_t* tcb  __attribute__((unused)), uint8_t prio  __attribute__((unused)))
 {
-	
+	uint8_t group  = prio>>3;
+	uint8_t offset = prio & 0x07;
+
+	// update bit in group flag
+	group_run_bits  |= (1<<group);
+	run_bits[group] |= (1<<offset);
+
+	// insert into list
+	run_list[prio] = tcb;
 }
 
 
@@ -84,7 +106,16 @@ void runqueue_add(tcb_t* tcb  __attribute__((unused)), uint8_t prio  __attribute
  */
 tcb_t* runqueue_remove(uint8_t prio  __attribute__((unused)))
 {
-	return (tcb_t *)1; // fix this; dummy return to prevent warning messages	
+	uint8_t group  = prio>>3;
+	uint8_t offset = prio & 0x07;
+
+	tcb* t = run_list[prio];
+	run_list[prio] = NULL;
+
+	// update flags
+	run_bits[group] &= ~(1<<offset);
+	if(run_bits[group]==0)
+		group_run_bits &= ~(1<<group);
 }
 
 /**
