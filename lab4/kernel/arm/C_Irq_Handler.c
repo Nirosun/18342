@@ -20,7 +20,7 @@ void C_Irq_Handler()
 	uint32_t mask = 0x1 << INT_OSTMR_0;
 
 #ifdef debug
-	printf("enter C_Irq_Handler. \n");
+	printf("enter c_irq_handler. \n");
 #endif
 
 	//uint32_t new_timmer = 0;
@@ -28,7 +28,7 @@ void C_Irq_Handler()
  	if(icpr & mask)
  	{
  	#ifdef debug
- 		printf("right irq source (icpr:%d). inside C_Irq_Handler. \n",icpr);
+ 		printf("right irq source (icpr:%d). inside c_irq_handler. \n",icpr);
  	#endif
 
  		os_time ++;	 // 10 ms

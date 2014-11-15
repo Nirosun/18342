@@ -3,10 +3,10 @@
  *
  * @brief Implements mutices.
  *
- * @author Harry Q Bovik < PUT YOUR NAMES HERE
+ * @author yangwu <yangwu@andrew.cmu.edu>
  *
  * 
- * @date  
+ * @date  11.15.2014
  */
 
 //#define DEBUG_MUTEX

@@ -93,5 +93,8 @@ tcb_t* runqueue_remove(uint8_t prio  __attribute__((unused)))
  */
 uint8_t highest_prio(void)
 {
-	return 1; // fix this; dummy return to prevent warning messages	
+	uint8_t y = prio_unmap_table[group_run_bits];
+    uint8_t x = prio_unmap_table[run_bits[y]];
+    
+    return (y << 3) + x;
 }

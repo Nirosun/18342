@@ -80,7 +80,5 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 
 	return ret_val;
 
-
-		
 	//assert(0);        /* should never get here */
 }
