@@ -23,7 +23,7 @@
 
 mutex_t gtMutex[OS_NUM_MUTEX];
 
-void mutex_init()
+void mutex_init() 
 {
 	
 }
