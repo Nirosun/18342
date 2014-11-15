@@ -22,7 +22,7 @@
 #endif
 
 mutex_t gtMutex[OS_NUM_MUTEX];
-volatile int cur_mutex_num;
+volatile int cur_mutex_num; // count number of mutex
 
 void _disable_irq();
 void _enable_irq();
@@ -85,7 +85,7 @@ int mutex_lock(int mutex  __attribute__((unused)))
 	// block
 	if(cur_mutex.bLock)
 	{
-		tcb_t *sleep_queue;
+		tcb_t *s_queue;
 		if(cur_mutex->pSleep_queue == NULL)
 		{
 			// put cur_tcb to sleep queue
@@ -94,7 +94,14 @@ int mutex_lock(int mutex  __attribute__((unused)))
 		}
 		else
 		{
-			?????
+			s_queue = cur_mutex->pSleep_queue;
+			while(s_queue->sleep_queue)
+			{
+				// move to next one in the list
+				s_queue = s_queue->sleep_queue;
+			}
+			s_queue->sleep_queue = cur_tcb;
+			cur_tcb->sleep_queue = NULL;
 		}
 
 		dispatch_sleep();
@@ -105,17 +112,55 @@ int mutex_lock(int mutex  __attribute__((unused)))
 		cur_mutex.bLock = 1;
 		//cur_mutex.bAvailable = 0;
 		cur_mutex.pHolding_Tcb = get_cur_tcb();
-		cur_mutex.pHolding_Tcb->cur_prio = 0;
-		cur_mutex.pHolding_Tcb->holds_lock = 1;
+		cur_tcb->cur_prio = 0;
+		cur_tcb->holds_lock += 1;
 	}
 
 	_enable_irq();
 
-	return 1;
+	return 0;
 }
 
 int mutex_unlock(int mutex  __attribute__((unused)))
 {
-	return 1; // fix this to return the correct value
-}
+	mutex_t *cur_mutex = &(gtMutex[mutex]);
+	tcb_t *next_tcb, *cur_tcb = get_cur_tcb();
 
+	_disable_irq();
+
+	if(mutex>OS_NUM_MUTEX || mutex<0)
+	{
+		_enable_irq();
+		return -EINVAL;
+	}
+
+	if(cur_tcb!=cur_mutex->pHolding_Tcb)
+	{
+		_enable_irq();
+		return -EPERM;	
+	}
+
+	// release mutex
+	cur_mutex->bLock = 0;
+	cur_mutex->pHolding_Tcb = NULL;
+
+	if(cur_mutex->pSleep_queue)
+	{
+		next_tcb = cur_mutex->pSleep_queue;
+		cur_mutex->pSleep_queue = next_tcb->sleep_queue;
+		next_tcb->sleep_queue = NULL;
+
+		runqueue_add(next_tcb, next_tcb->cur_prio);
+	}
+
+	cur_tcb->holds_lock = cur_tcb->holds_lock - 1;
+
+	if(cur_tcb->holds_lock == 0)
+	{
+		cur_tcb->cur_prio = cur_tcb->native_prio;
+	}
+
+	_enable_irq();
+
+	return 0;
+}
