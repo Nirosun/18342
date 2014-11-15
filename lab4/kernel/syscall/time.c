@@ -18,7 +18,7 @@ unsigned long time_syscall(void)
 {
 	/*
 	 * return the volatile system time. unit:second
-	 */
+	 */ 
 	return os_time * ((unsigned long)10);
 }
 
