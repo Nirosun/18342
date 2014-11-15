@@ -21,6 +21,8 @@
 #include <exports.h> // temp
 #endif
 
+#define NULL (void *)0
+
 mutex_t gtMutex[OS_NUM_MUTEX];
 volatile int cur_mutex_num; // count number of mutex
 
@@ -31,7 +33,7 @@ void mutex_init()
 {
 	cur_mutex_num = 0;
 	int i;
-	for(int i=0; i<OS_NUM_MUTEX; i++)
+	for(i=0; i<OS_NUM_MUTEX; i++)
 	{
 		gtMutex[i].bAvailable = 1;
 		gtMutex[i].pHolding_Tcb = NULL;
@@ -49,10 +51,10 @@ int mutex_create(void)
 	if(cur_mutex_num == OS_NUM_MUTEX)
 	{
 		_enable_irq();
-		return -ENOMEN;
+		return -ENOMEM;
 	}	
 
-	for(int i=OS_NUM_MUTEX-1; i>=0; i--)
+	for(i=OS_NUM_MUTEX-1; i>=0; i--)
 	{
 		if(gtMutex[i].bAvailable) // still availble mutex left
 		{
@@ -66,7 +68,7 @@ int mutex_create(void)
 	_enable_irq();
 
 	// after iteration, no available left
-	return -ENOMEN;
+	return -ENOMEM;
 }
 
 int mutex_lock(int mutex  __attribute__((unused)))
@@ -77,13 +79,13 @@ int mutex_lock(int mutex  __attribute__((unused)))
 	mutex_t *cur_mutex = &(gtMutex[mutex]);
 	tcb_t *cur_tcb = get_cur_tcb();
 	// cannot acquire a holding mutex 
-	if(cur_mutex.pHolding_Tcb==cur_tcb)
+	if(cur_mutex->pHolding_Tcb==cur_tcb)
 		return EDEADLOCK;
 
 	_disable_irq();
 
 	// block
-	if(cur_mutex.bLock)
+	if(cur_mutex->bLock)
 	{
 		tcb_t *s_queue;
 		if(cur_mutex->pSleep_queue == NULL)
@@ -109,9 +111,9 @@ int mutex_lock(int mutex  __attribute__((unused)))
 	// unblock	
 	else
 	{
-		cur_mutex.bLock = 1;
+		cur_mutex->bLock = 1;
 		//cur_mutex.bAvailable = 0;
-		cur_mutex.pHolding_Tcb = get_cur_tcb();
+		cur_mutex->pHolding_Tcb = get_cur_tcb();
 		cur_tcb->cur_prio = 0;
 		cur_tcb->holds_lock += 1;
 	}

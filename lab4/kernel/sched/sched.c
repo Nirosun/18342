@@ -18,11 +18,13 @@
 #include <arm/exception.h>
 #include <arm/physmem.h>
 
+#define NULL (void *)0
+
 tcb_t system_tcb[OS_MAX_TASKS]; /*allocate memory for system TCBs */
 
 void sched_init(task_t* main_task  __attribute__((unused)))
 {
-	
+		
 }
 
 /**

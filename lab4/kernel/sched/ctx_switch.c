@@ -28,7 +28,7 @@ static __attribute__((unused)) tcb_t* cur_tcb; /* use this if needed */
  */
 void dispatch_init(tcb_t* idle __attribute__((unused)))
 {
-	cur_tcb = idel;	
+	cur_tcb = idle;	
 }
 
 
@@ -42,13 +42,13 @@ void dispatch_init(tcb_t* idle __attribute__((unused)))
  */
 void dispatch_save(void)
 {
-	uint8_t highest_prio = highest_prio();
+	//uint8_t highest_prio = highest_prio();
 
 	// place cur tcb in queue, wait for next time slice
 	runqueue_add(cur_tcb, cur_tcb->cur_prio);
 	tcb_t* temp_tcb = cur_tcb;
 	// get task with highest prio in ready list
-	tcb_t* next_tcb =runqueue_remove(highest_prio);
+	tcb_t* next_tcb =runqueue_remove(highest_prio());
 	cur_tcb = next_tcb;
 
 	// ctx switch to new task
@@ -63,12 +63,12 @@ void dispatch_save(void)
  */
 void dispatch_nosave(void)
 {
-	uint8_t highest_prio = highest_prio();
+	//uint8_t highest_prio = highest_prio();
 
 	runqueue_add(cur_tcb, cur_tcb->cur_prio);
-	tcb_t* temp_tcb = cur_tcb;
+	// tcb_t* temp_tcb = cur_tcb;
 	// get task with highest prio in ready list
-	tcb_t* next_tcb =runqueue_remove(highest_prio);
+	tcb_t* next_tcb =runqueue_remove(highest_prio());
 	cur_tcb = next_tcb;
 
 	// ctx switch to new task
@@ -84,11 +84,11 @@ void dispatch_nosave(void)
  */
 void dispatch_sleep(void)
 {
-	uint8_t highest_prio = highest_prio();
+	//uint8_t highest_prio = highest_prio();
 
 	tcb_t* temp_tcb = cur_tcb;
 	// get task with highest prio in ready list
-	tcb_t* next_tcb =runqueue_remove(highest_prio);
+	tcb_t* next_tcb =runqueue_remove(highest_prio());
 	cur_tcb = next_tcb;
 
 	// ctx switch to new task
@@ -101,11 +101,11 @@ void dispatch_sleep(void)
 uint8_t get_cur_prio(void)
 {
 	return cur_tcb -> cur_prio; 
-
+}
 /**
  * @brief Returns the TCB of the current task.
  */
 tcb_t* get_cur_tcb(void)
 {
-	return (tcb_t *) cur_tcb; 
+	return cur_tcb; 
 }

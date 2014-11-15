@@ -33,10 +33,6 @@ void C_Irq_Handler()
 
  		os_time ++;	 // 10 ms
 
- 		//new_timmer = reg_read(OSTMR_OSMR_ADDR(0));
-		//new_timmer += (osmr_value*10)/1000;	// 10 ms
-		//reg_write(OSTMR_OSMR_ADDR(0), new_timmer);
-
 		/* restart */
  		reg_write(OSTMR_OSCR_ADDR, 0x00);
  		reg_set(OSTMR_OSSR_ADDR, OSTMR_OSSR_M0);

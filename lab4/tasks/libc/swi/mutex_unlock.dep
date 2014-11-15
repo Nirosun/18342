@@ -1,0 +1,5 @@
+/home/yang/Workspace/embedded/lab4/tasks/libc/swi/mutex_unlock.o:  \
+ /home/yang/Workspace/embedded/lab4/tasks/libc/swi/mutex_unlock.S \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/asm.h
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/asm.h:

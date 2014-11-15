@@ -16,6 +16,8 @@
 #include <arm/psr.h>
 #include <arm/exception.h>
 
+#define NULL (void *)0
+
 /**
  * @brief Fake device maintainence structure.
  * Since our tasks are periodic, we can represent 
@@ -40,13 +42,22 @@ typedef struct dev dev_t;
 const unsigned long dev_freq[NUM_DEVICES] = {100, 200, 500, 50};
 static dev_t devices[NUM_DEVICES];
 
+extern volatile unsigned long os_time;
+
+void _disable_irq();
+void _enable_irq();
+
 /**
  * @brief Initialize the sleep queues and match values for all devices.
  */
 void dev_init(void)
 {
-   /* the following line is to get rid of the warning and should not be needed */	
-   devices[0]=devices[0];
+	int i;
+	for(i=0; i<NUM_DEVICES; i++)
+	{
+		devices[i].sleep_queue = NULL;
+		devices[i].next_match  = os_time+dev_freq[i];
+	} 
 }
 
 
@@ -58,7 +69,30 @@ void dev_init(void)
  */
 void dev_wait(unsigned int dev __attribute__((unused)))
 {
+	_disable_irq();
+
+	tcb_t *s_queue = devices[dev].sleep_queue;
+	tcb_t *cur_tcb = get_cur_tcb();
+
+	if(s_queue == NULL)
+	{
+		devices[dev].sleep_queue = cur_tcb;
+		devices[dev].sleep_queue->sleep_queue = NULL;
+	}
+	else
+	{
+		while(s_queue->sleep_queue != NULL)
+		{
+			s_queue = s_queue->sleep_queue;
+		}
+		s_queue->sleep_queue = cur_tcb;
+		s_queue = s_queue->sleep_queue;
+		s_queue->sleep_queue = NULL;
+	}
 	
+	_enable_irq();
+
+	dispatch_sleep();
 }
 
 
@@ -71,6 +105,32 @@ void dev_wait(unsigned int dev __attribute__((unused)))
  */
 void dev_update(unsigned long millis __attribute__((unused)))
 {
-	
-}
+	tcb_t *sleep_tcb, *next_tcb;
+	int i, flag = 0;
 
+	_disable_irq();
+
+	for(i=0; i<NUM_DEVICES; i++)
+	{
+		if(devices[i].next_match < millis)
+		{
+			devices[i].next_match = millis + dev_freq[i];
+            // Empty sleep queue
+            sleep_tcb = devices[i].sleep_queue;
+            devices[i].sleep_queue = NULL;
+
+            // Put every tcb in sleep queue into run queue
+            while (sleep_tcb != NULL)
+            {
+                flag = 1;
+                runqueue_add(sleep_tcb, sleep_tcb->cur_prio);
+
+                next_tcb = sleep_tcb->sleep_queue;
+                sleep_tcb->sleep_queue = NULL;
+                sleep_tcb = next_tcb;
+            }
+		}
+	}
+
+	_enable_irq();
+}

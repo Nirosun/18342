@@ -13,7 +13,7 @@
 #include <sched.h>
 #include "sched_i.h"
 
-
+#define NULL (void *)0;
 
 static tcb_t* run_list[OS_MAX_TASKS]  __attribute__((unused));
 
@@ -109,13 +109,14 @@ tcb_t* runqueue_remove(uint8_t prio  __attribute__((unused)))
 	uint8_t group  = prio>>3;
 	uint8_t offset = prio & 0x07;
 
-	tcb* t = run_list[prio];
+	tcb_t *t = run_list[prio];
 	run_list[prio] = NULL;
 
 	// update flags
 	run_bits[group] &= ~(1<<offset);
 	if(run_bits[group]==0)
 		group_run_bits &= ~(1<<group);
+	return t;
 }
 
 /**
