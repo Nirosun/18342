@@ -1,8 +1,0 @@
-/home/yang/Workspace/embedded/lab4/kernel/sched/ctx_switch_asm.o:  \
- /home/yang/Workspace/embedded/lab4/kernel/sched/ctx_switch_asm.S \
-  /home/yang/Workspace/embedded/lab4/kernel/include/asm.h \
-  /home/yang/Workspace/embedded/lab4/kernel/include/arm/psr.h
-
-/home/yang/Workspace/embedded/lab4/kernel/include/asm.h:
-
-/home/yang/Workspace/embedded/lab4/kernel/include/arm/psr.h:
