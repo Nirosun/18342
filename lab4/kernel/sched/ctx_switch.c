@@ -73,6 +73,8 @@ void dispatch_nosave(void)
 
 	// ctx switch to new task
 	ctx_switch_half(&(next_tcb->context));
+
+	printf("F@ck\n");
 }
 
 

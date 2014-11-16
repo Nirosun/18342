@@ -15,6 +15,7 @@
 
 #define LOAD_ADDR  0xa0000000
 #define USR_STACK  0xa3000000
+#define OLDSP_ADDR 0xa0f00000 
 
 #define USR_START_ADDR        0xa0000000
 #define USR_END_ADDR          0xa3000000
