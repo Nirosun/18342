@@ -1,8 +1,0 @@
-/home/yang/Workspace/embedded/lab4/tasks/libc/swi/event_wait.o:  \
- /home/yang/Workspace/embedded/lab4/tasks/libc/swi/event_wait.S \
-  /home/yang/Workspace/embedded/lab4/tasks/libc/include/asm.h \
-  /home/yang/Workspace/embedded/lab4/tasks/libc/include/bits/swi.h
-
-/home/yang/Workspace/embedded/lab4/tasks/libc/include/asm.h:
-
-/home/yang/Workspace/embedded/lab4/tasks/libc/include/bits/swi.h:

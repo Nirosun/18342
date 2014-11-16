@@ -1,8 +1,0 @@
-/home/yang/Workspace/embedded/lab4/kernel/memcheck.o:  \
- /home/yang/Workspace/embedded/lab4/kernel/memcheck.c \
-  /home/yang/Workspace/embedded/lab4/kernel/include/kernel.h \
-  /home/yang/Workspace/embedded/lab4/kernel/include/types.h
-
-/home/yang/Workspace/embedded/lab4/kernel/include/kernel.h:
-
-/home/yang/Workspace/embedded/lab4/kernel/include/types.h:
