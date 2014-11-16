@@ -7,8 +7,19 @@
  */
 
 #include <asm.h>
+#include <bits/swi.h>
 
 	.file "mutex_lock.S"
 
 FUNC(mutex_lock)
-	@ Add code here.  Put your name at the top.
+	swi MUTEX_LOCK
+
+	mov	r1, #0
+	subs	r1, r1, r0
+	ble	.L1
+	ldr	r0, =errno
+	str	r1, [r0]
+	mov	r0, #-1 
+
+.L1:
+	mov pc, lr

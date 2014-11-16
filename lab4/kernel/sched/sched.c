@@ -17,8 +17,7 @@
 #include <arm/psr.h>
 #include <arm/exception.h>
 #include <arm/physmem.h>
-
-#define NULL (void *)0
+#include <util.h>
 
 tcb_t system_tcb[OS_MAX_TASKS]; /*allocate memory for system TCBs */
 

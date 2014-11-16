@@ -7,8 +7,19 @@
  */
 
 #include <asm.h>
+#include <bits/swi.h>
 
 	.file "mutex_create.S"
 
 FUNC(mutex_create)
-	@ Add code here.  Put your name at the top.
+	swi CREATE_SWI 
+
+	mov	r1, #0
+	subs	r1, r1, r0
+	ble	.L1
+	ldr	r0, =errno
+	str	r1, [r0]
+	mov	r0, #-1 
+
+.L1:
+	mov pc, lr
