@@ -44,8 +44,6 @@ static dev_t devices[NUM_DEVICES];
 
 extern volatile unsigned long os_time;
 
-void _disable_irq();
-void _enable_irq();
 
 /**
  * @brief Initialize the sleep queues and match values for all devices.
@@ -69,7 +67,7 @@ void dev_init(void)
  */
 void dev_wait(unsigned int dev __attribute__((unused)))
 {
-	_disable_irq();
+	disable_interrupts();
 
 	tcb_t *s_queue = devices[dev].sleep_queue;
 	tcb_t *cur_tcb = get_cur_tcb();
@@ -90,7 +88,7 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 		s_queue->sleep_queue = NULL;
 	}
 	
-	_enable_irq();
+	enable_interrupts();
 
 	dispatch_sleep();
 }
@@ -108,7 +106,7 @@ void dev_update(unsigned long millis __attribute__((unused)))
 	tcb_t *sleep_tcb, *next_tcb;
 	int i, flag = 0;
 
-	_disable_irq();
+	disable_interrupts();
 
 	for(i=0; i<NUM_DEVICES; i++)
 	{
@@ -132,5 +130,5 @@ void dev_update(unsigned long millis __attribute__((unused)))
 		}
 	}
 
-	_enable_irq();
+	enable_interrupts();
 }
