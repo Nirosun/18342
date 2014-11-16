@@ -1,8 +1,0 @@
-/home/yang/Workspace/embedded/lab4/kernel/arm/Load_User.o:  \
- /home/yang/Workspace/embedded/lab4/kernel/arm/Load_User.S \
-  /home/yang/Workspace/embedded/lab4/kernel/include/bits/swi.h \
-  /home/yang/Workspace/embedded/lab4/kernel/include/bits/addrno.h
-
-/home/yang/Workspace/embedded/lab4/kernel/include/bits/swi.h:
-
-/home/yang/Workspace/embedded/lab4/kernel/include/bits/addrno.h:
