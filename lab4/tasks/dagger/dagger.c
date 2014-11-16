@@ -54,8 +54,8 @@ int main(int argc, char** argv)
 
 	task_create(tasks, 2);
 	argc=argc; /* remove compiler warning */
-	argv[0]=argv[0]; /* remove compiler warning */
-
+	//argv[0]=argv[0]; /* remove compiler warning */
+	argv=argv;
 	puts("Why did your code get here!\n");
 	return 0;
 }

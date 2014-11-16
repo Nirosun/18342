@@ -91,57 +91,57 @@ kernel : $(KERNEL).bin
 ############### GENERIC RULES ###################
 
 %.dep: %.S
-	@echo DEP $(notdir $<)
-	@$(CC) $(ASFLAGS) -DASSEMBLER $(INCLUDES) -M -MP -MF $@ -MT $(<:.S=.o) $<
+	echo DEP $(notdir $<)
+	$(CC) $(ASFLAGS) -DASSEMBLER $(INCLUDES) -M -MP -MF $@ -MT $(<:.S=.o) $<
 
 %.dep: %.s
-	@echo "You should use the .S file extension rather than .s"
-	@echo ".s does not support precompiler directives (like #include)"
-	@false
+	echo "You should use the .S file extension rather than .s"
+	echo ".s does not support precompiler directives (like #include)"
+	false
 
 %.dep: %.c
-	@echo DEP $(notdir $<)
-	@$(CC) $(CFLAGS) $(INCLUDES) -M -MP -MF $@ -MT $(<:.c=.o) $<
+	echo DEP $(notdir $<)
+	$(CC) $(CFLAGS) $(INCLUDES) -M -MP -MF $@ -MT $(<:.c=.o) $<
 
 %.o: %.S
-	@echo CC $(notdir $<)
-	@$(CC) $(ASFLAGS) $(INCLUDES) -c -o $@ $<
+	echo CC $(notdir $<)
+	$(CC) $(ASFLAGS) $(INCLUDES) -c -o $@ $<
 
 %.o: %.s
-	@echo "You should use the .S file extension rather than .s"
-	@echo ".s does not support precompiler directives (like #include)"
-	@false
+	echo "You should use the .S file extension rather than .s"
+	echo ".s does not support precompiler directives (like #include)"
+	false
 
 %.o: %.c
-	@echo CC $(notdir $<)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
+	echo CC $(notdir $<)
+	$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
 
 %.a:
 	@echo AR $(notdir $@)
 	@$(AR) rcs $@ $^
 
 %.bin: %
-	@echo OBJCOPY $(notdir $<) $(notdir $@)
-	@$(OBJCOPY) -O binary $< $@
+	echo OBJCOPY $(notdir $<) $(notdir $@)
+	$(OBJCOPY) -O binary $< $@
 
 
 ############### CLEANING RULES ##################
 
 clean:
-	@echo CLEAN objects
-	@$(RM) $(ALL_OBJS)
-	@echo CLEAN deps
-	@$(RM) $(ALL_OBJS:%.o=%.dep)
-	@echo CLEAN archives/misc
-	@$(RM) $(ALL_CLEANS)
+	echo CLEAN objects
+	$(RM) $(ALL_OBJS)
+	echo CLEAN deps
+	$(RM) $(ALL_OBJS:%.o=%.dep)
+	echo CLEAN archives/misc
+	$(RM) $(ALL_CLEANS)
 
 clobber: clean
-	@echo CLEAN packages
-	@$(RM) $(PACKAGE_TARGETS)
-	@echo CLEAN package bins
-	@$(RM) $(PACKAGE_TARGETS:%=%.bin)
-	@echo CLEAN others
-	@$(RM) $(ALL_CLOBBERS)
+	echo CLEAN packages
+	$(RM) $(PACKAGE_TARGETS)
+	echo CLEAN package bins
+	$(RM) $(PACKAGE_TARGETS:%=%.bin)
+	echo CLEAN others
+	$(RM) $(ALL_CLOBBERS)
 
 
 ########### DEPENDENCY FILE INCLUSION ############
