@@ -30,6 +30,7 @@ void Install_Handler(unsigned *swi_vec_addr, unsigned *swi_handler_new, unsigned
 void Restore_Handler(unsigned *swi_vec_addr, unsigned *swi_old_inst);
 unsigned S_Handler();
 //unsigned irq_handler();
+void irq_wrapper();
 int Load_User();
 void init_irq();
 void _disable_irq();
@@ -59,7 +60,8 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 	int ret_val;
 
 	swi_handler_new = (unsigned *)&S_Handler;
-	irq_handler_new = (unsigned *)&irq_handler;
+	//irq_handler_new = (unsigned *)&irq_handler;
+	irq_handler_new = (unsigned *)&irq_wrapper;
 
 	// install new handler
 	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);

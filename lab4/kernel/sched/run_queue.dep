@@ -1,0 +1,32 @@
+/home/yang/Workspace/embedded/lab4/kernel/sched/run_queue.o:  \
+ /home/yang/Workspace/embedded/lab4/kernel/sched/run_queue.c \
+  /home/yang/Workspace/embedded/lab4/kernel/include/types.h \
+  /home/yang/Workspace/embedded/lab4/kernel/include/assert.h \
+  /home/yang/Workspace/embedded/lab4/uboot/include/exports.h \
+  /home/yang/Workspace/embedded/lab4/kernel/include/stdarg.h \
+  /home/yang/Workspace/embedded/lab4/uboot/include/_exports.h \
+  /home/yang/Workspace/embedded/lab4/kernel/include/kernel.h \
+  /home/yang/Workspace/embedded/lab4/kernel/include/sched.h \
+  /home/yang/Workspace/embedded/lab4/kernel/include/task.h \
+  /home/yang/Workspace/embedded/lab4/kernel/include/config.h \
+  /home/yang/Workspace/embedded/lab4/kernel/sched/sched_i.h
+
+/home/yang/Workspace/embedded/lab4/kernel/include/types.h:
+
+/home/yang/Workspace/embedded/lab4/kernel/include/assert.h:
+
+/home/yang/Workspace/embedded/lab4/uboot/include/exports.h:
+
+/home/yang/Workspace/embedded/lab4/kernel/include/stdarg.h:
+
+/home/yang/Workspace/embedded/lab4/uboot/include/_exports.h:
+
+/home/yang/Workspace/embedded/lab4/kernel/include/kernel.h:
+
+/home/yang/Workspace/embedded/lab4/kernel/include/sched.h:
+
+/home/yang/Workspace/embedded/lab4/kernel/include/task.h:
+
+/home/yang/Workspace/embedded/lab4/kernel/include/config.h:
+
+/home/yang/Workspace/embedded/lab4/kernel/sched/sched_i.h:
