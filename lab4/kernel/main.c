@@ -65,14 +65,11 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);
 	Install_Handler(irq_vec_addr, irq_handler_new, irq_old_inst);
 
-	// initialize irq and system time
+	// initialize
 	init_irq();
 	init_os_time();
-	// Initialize run queue
     runqueue_init();
-    // Initialize device
     dev_init();
-	//printf("going to usr program...\n");
 
 	ret_val = Load_User(argc, argv);
 	

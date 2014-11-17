@@ -1,0 +1,23 @@
+/home/yang/Workspace/embedded/lab4/tasks/libc/stdio/printf.o:  \
+ /home/yang/Workspace/embedded/lab4/tasks/libc/stdio/printf.c \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/stdio.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/stdarg.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/sys/types.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/bits/types.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/unistd.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/bits/fileno.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/stdio/doprnt.h
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/stdio.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/stdarg.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/sys/types.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/bits/types.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/unistd.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/bits/fileno.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/stdio/doprnt.h:

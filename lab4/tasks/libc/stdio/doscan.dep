@@ -1,0 +1,20 @@
+/home/yang/Workspace/embedded/lab4/tasks/libc/stdio/doscan.o:  \
+ /home/yang/Workspace/embedded/lab4/tasks/libc/stdio/doscan.c \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/stdarg.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/sys/types.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/bits/types.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/ctype.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/include/inline.h \
+  /home/yang/Workspace/embedded/lab4/tasks/libc/stdio/doscan.h
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/stdarg.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/sys/types.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/bits/types.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/ctype.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/include/inline.h:
+
+/home/yang/Workspace/embedded/lab4/tasks/libc/stdio/doscan.h:

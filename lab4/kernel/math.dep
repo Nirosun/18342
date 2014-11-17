@@ -1,0 +1,8 @@
+/home/yang/Workspace/embedded/lab4/kernel/math.o:  \
+ /home/yang/Workspace/embedded/lab4/kernel/math.c \
+  /home/yang/Workspace/embedded/lab4/kernel/include/types.h \
+  /home/yang/Workspace/embedded/lab4/kernel/include/math.h
+
+/home/yang/Workspace/embedded/lab4/kernel/include/types.h:
+
+/home/yang/Workspace/embedded/lab4/kernel/include/math.h:
