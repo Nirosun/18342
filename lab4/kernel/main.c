@@ -68,7 +68,10 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 	// initialize irq and system time
 	init_irq();
 	init_os_time();
-
+	// Initialize run queue
+    runqueue_init();
+    // Initialize device
+    dev_init();
 	//printf("going to usr program...\n");
 
 	ret_val = Load_User(argc, argv);

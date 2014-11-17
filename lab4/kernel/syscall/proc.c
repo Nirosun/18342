@@ -44,9 +44,9 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
     }
 
     // Initialize run queue
-    runqueue_init();
+    //runqueue_init();
     // Initialize device
-    dev_init();
+    //dev_init();
 
     // Do ubtest on tasks
     if (assign_schedule(&tasks, num_tasks) == 0)
