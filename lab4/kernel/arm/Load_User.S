@@ -23,16 +23,17 @@ Load_User:
         str	r2, [sp, #-4]!		@ push <NULL> on top of stack
         mov	r3, r0
 	mov	r3, r3, LSL #2
-.L1:       
-        subs	r3, r3, #4
-        blt	.L2
-        ldr	r2, [r1, r3]
-        str	r2, [sp, #-4]!		@ push argv on user stack
-        b	.L1
-.L2:
-	str	r0, [sp, #-4]!		@ push argc on user stack
+
+        @ r8!r8!r8!
+        ldr r12, =global_data
+        ldr r8, [r12]
+@.L1:       
+@        subs	r3, r3, #4
+@        blt	.L2
+@        ldr	r2, [r1, r3]
+@        str	r2, [sp, #-4]!		@ push argv on user stack
+@        b	.L1
+@.L2:
+@	str	r0, [sp, #-4]!		@ push argc on user stack
         ldr	r3, =LOAD_ADDR
         blx	r3			@ jump to user program
-        @swi	EXIT_SWI
-	
-

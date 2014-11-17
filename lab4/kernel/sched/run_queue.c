@@ -116,6 +116,7 @@ tcb_t* runqueue_remove(uint8_t prio  __attribute__((unused)))
 	run_bits[group] &= ~(1<<offset);
 	if(run_bits[group]==0)
 		group_run_bits &= ~(1<<group);
+	
 	return t;
 }
 

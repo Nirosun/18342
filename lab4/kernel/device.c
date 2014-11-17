@@ -15,8 +15,7 @@
 #include <arm/reg.h>
 #include <arm/psr.h>
 #include <arm/exception.h>
-
-#define NULL (void *)0
+#include <util.h>
 
 /**
  * @brief Fake device maintainence structure.
@@ -129,6 +128,14 @@ void dev_update(unsigned long millis __attribute__((unused)))
             }
 		}
 	}
+
+	/*
+	 * DOES THIS HELP?!
+	 */
+	if(flag == 1)
+    {
+        dispatch_save();
+    }
 
 	enable_interrupts();
 }

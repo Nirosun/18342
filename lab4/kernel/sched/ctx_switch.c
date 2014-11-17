@@ -14,9 +14,9 @@
 #include <kernel.h>
 #include "sched_i.h"
 
-#ifdef DEBUG_MUTEX
+//#ifdef DEBUG_MUTEX
 #include <exports.h>
-#endif
+//#endif
 
 static __attribute__((unused)) tcb_t* cur_tcb; /* use this if needed */
 
@@ -29,6 +29,14 @@ static __attribute__((unused)) tcb_t* cur_tcb; /* use this if needed */
 void dispatch_init(tcb_t* idle __attribute__((unused)))
 {
 	cur_tcb = idle;	
+
+	/*
+	 * DOES THIS HELP??
+	 */
+	// Remove IDLE from run queue
+    runqueue_remove(idle->cur_prio);
+    // Switch to IDLE task
+    ctx_switch_half(&idle->context);
 }
 
 
@@ -65,7 +73,11 @@ void dispatch_nosave(void)
 {
 	//uint8_t highest_prio = highest_prio();
 
-	runqueue_add(cur_tcb, cur_tcb->cur_prio);
+#ifdef debug 
+	//printf("i'm dispatch_nosave..\n");
+#endif
+
+	//runqueue_add(cur_tcb, cur_tcb->cur_prio);
 	// tcb_t* temp_tcb = cur_tcb;
 	// get task with highest prio in ready list
 	tcb_t* next_tcb =runqueue_remove(highest_prio());
@@ -73,8 +85,6 @@ void dispatch_nosave(void)
 
 	// ctx switch to new task
 	ctx_switch_half(&(next_tcb->context));
-
-	printf("F@ck\n");
 }
 
 

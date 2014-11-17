@@ -26,9 +26,6 @@
 mutex_t gtMutex[OS_NUM_MUTEX];
 volatile int cur_mutex_num; // count number of mutex
 
-void _disable_irq();
-void _enable_irq();
-
 void mutex_init() 
 {
 	cur_mutex_num = 0;
@@ -46,11 +43,11 @@ int mutex_create(void)
 {
 	int i;
 
-	_disable_irq();
+	disable_interrupts();
 
 	if(cur_mutex_num == OS_NUM_MUTEX)
 	{
-		_enable_irq();
+		enable_interrupts();
 		return -ENOMEM;
 	}	
 
@@ -65,7 +62,7 @@ int mutex_create(void)
 
 	cur_mutex_num++;
 
-	_enable_irq();
+	enable_interrupts();
 
 	// after iteration, no available left
 	return -ENOMEM;
@@ -82,7 +79,7 @@ int mutex_lock(int mutex  __attribute__((unused)))
 	if(cur_mutex->pHolding_Tcb==cur_tcb)
 		return EDEADLOCK;
 
-	_disable_irq();
+	disable_interrupts();
 
 	// block
 	if(cur_mutex->bLock)
@@ -118,7 +115,7 @@ int mutex_lock(int mutex  __attribute__((unused)))
 		cur_tcb->holds_lock += 1;
 	}
 
-	_enable_irq();
+	enable_interrupts();
 
 	return 0;
 }
@@ -128,17 +125,17 @@ int mutex_unlock(int mutex  __attribute__((unused)))
 	mutex_t *cur_mutex = &(gtMutex[mutex]);
 	tcb_t *next_tcb, *cur_tcb = get_cur_tcb();
 
-	_disable_irq();
+	disable_interrupts();
 
 	if(mutex>OS_NUM_MUTEX || mutex<0)
 	{
-		_enable_irq();
+		enable_interrupts();
 		return -EINVAL;
 	}
 
 	if(cur_tcb!=cur_mutex->pHolding_Tcb)
 	{
-		_enable_irq();
+		enable_interrupts();
 		return -EPERM;	
 	}
 
@@ -162,7 +159,7 @@ int mutex_unlock(int mutex  __attribute__((unused)))
 		cur_tcb->cur_prio = cur_tcb->native_prio;
 	}
 
-	_enable_irq();
+	enable_interrupts();
 
 	return 0;
 }

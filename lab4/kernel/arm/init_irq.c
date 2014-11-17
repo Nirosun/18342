@@ -25,12 +25,12 @@ void init_irq()
 
 	reg_write(INT_ICLR_ADDR, iclr_reg);
 
-	void * irq_stack_block = (void *)malloc(irq_stack_size); // 1024 bytes
+	/*void * irq_stack_block = (void *)malloc(irq_stack_size); // 1024 bytes
 
 	// irq sp: setup sp in irq mode
 	_irq_stack_setup((unsigned long)irq_stack_block+1024); 
     
-	_enable_irq();
+	_enable_irq();*/
 
     return;
 }

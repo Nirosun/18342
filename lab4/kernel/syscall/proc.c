@@ -27,17 +27,14 @@
 
 int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
 {
-	puts("-1\n");
-   disable_interrupts();
-   puts("0\n");
+    disable_interrupts();
+
     // Return EINVAL when num tasks is greater than
     // the maximum number of tasks the OS supports
     if(num_tasks <= 0 || num_tasks > OS_AVAIL_TASKS)
     {
         return -EINVAL;
     }
-
-    printf("1\n");
 
     // Return EFAULT when tasks points to region whose
     // bounds lie outside valid address space
@@ -46,7 +43,6 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
         return -EFAULT;
     }
 
-    printf("2\n");
     // Initialize run queue
     runqueue_init();
     // Initialize device
@@ -58,14 +54,13 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
         printf("schedule failed\n");
         return -ESCHED;
     }
-    printf("3\n");
 
     // Initialize tcb for each task
     allocate_tasks(&tasks, num_tasks);
-    printf("4\n");
+
     // Initialize IDLE task
     sched_init(NULL);
-    printf("5\n");
+
     // Dispatch IDLE task
     dispatch_nosave();
 
