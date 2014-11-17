@@ -30,13 +30,8 @@ void dispatch_init(tcb_t* idle __attribute__((unused)))
 {
 	cur_tcb = idle;	
 
-	/*
-	 * DOES THIS HELP??
-	 */
-	// Remove IDLE from run queue
-    runqueue_remove(idle->cur_prio);
-    // Switch to IDLE task
-    ctx_switch_half(&idle->context);
+	// Idle should not in runnable queue
+    runqueue_remove(cur_tcb->cur_prio);
 }
 
 
@@ -50,17 +45,25 @@ void dispatch_init(tcb_t* idle __attribute__((unused)))
  */
 void dispatch_save(void)
 {
-	//uint8_t highest_prio = highest_prio();
+	/*
+	 * ToDo:
+	 * #1 Put cur tcb to runnable queue
+	 * #2 Update cur_tcb for getter
+	 * #3 ctx switch
+	 */
 
 	// place cur tcb in queue, wait for next time slice
-	runqueue_add(cur_tcb, cur_tcb->cur_prio);
 	tcb_t* temp_tcb = cur_tcb;
-	// get task with highest prio in ready list
-	tcb_t* next_tcb =runqueue_remove(highest_prio());
+	runqueue_add(temp_tcb, temp_tcb->cur_prio);
+
+	// get task with highest prio in ready list for getter
+	uint8_t hi_prio = highest_prio();
+	tcb_t* next_tcb =runqueue_remove(hi_prio);
 	cur_tcb = next_tcb;
 
-	// ctx switch to new task
+	// ctx switch with status save
 	ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));
+
 }
 
 /**
@@ -71,19 +74,15 @@ void dispatch_save(void)
  */
 void dispatch_nosave(void)
 {
-	//uint8_t highest_prio = highest_prio();
-
 #ifdef debug 
-	//printf("i'm dispatch_nosave..\n");
+	printf("i'm dispatch_nosave..\n");
 #endif
 
-	//runqueue_add(cur_tcb, cur_tcb->cur_prio);
-	// tcb_t* temp_tcb = cur_tcb;
-	// get task with highest prio in ready list
-	tcb_t* next_tcb =runqueue_remove(highest_prio());
-	cur_tcb = next_tcb;
-
+	uint8_t hi_prio = highest_prio();
+	tcb_t* next_tcb =runqueue_remove(hi_prio);
+	
 	// ctx switch to new task
+	cur_tcb = next_tcb;
 	ctx_switch_half(&(next_tcb->context));
 }
 
@@ -96,14 +95,13 @@ void dispatch_nosave(void)
  */
 void dispatch_sleep(void)
 {
-	//uint8_t highest_prio = highest_prio();
-
 	tcb_t* temp_tcb = cur_tcb;
-	// get task with highest prio in ready list
-	tcb_t* next_tcb =runqueue_remove(highest_prio());
+
+	uint8_t hi_prio = highest_prio();
+	tcb_t* next_tcb =runqueue_remove(hi_prio);
 	cur_tcb = next_tcb;
 
-	// ctx switch to new task
+	// ctx switch with status save
 	ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));
 }
 
