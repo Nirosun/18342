@@ -15,6 +15,7 @@
 #include <assert.h>
 
 #include <exports.h>
+#include <util.h>
 
 #include <bits/swi.h>
 #include <bits/fileno.h>
@@ -27,12 +28,12 @@
 #include "constant.h"
 
 void Install_Handler(unsigned *swi_vec_addr, unsigned *swi_handler_new, unsigned *swi_old_inst);
-void Restore_Handler(unsigned *swi_vec_addr, unsigned *swi_old_inst);
 unsigned S_Handler();
 void irq_wrapper();
 int Load_User();
 void init_irq();
 void init_os_time();
+void  runqueue_init();
 
 
 uint32_t global_data;
@@ -70,6 +71,7 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 	init_os_time();
     runqueue_init();
     dev_init();
+    sched_init(NULL);
 
 	ret_val = Load_User(argc, argv);
 	

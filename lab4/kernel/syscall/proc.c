@@ -29,28 +29,16 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
 {
     disable_interrupts();
 
-    // Do ubtest on tasks
-    if (assign_schedule(&tasks, num_tasks) == 0)
-    {
-        printf("schedule failed\n");
-        return -ESCHED;
-    }
-
-    // Initialize tcb for each task
+    // Allocate user-stacks and init kernel contexts of thread
     allocate_tasks(&tasks, num_tasks);
 
-    // Initialize IDLE task
-    sched_init(NULL);
-
-    // Dispatch IDLE task
     dispatch_nosave();
 
-    return 1;
+    return 0;
 }
 
 int event_wait(unsigned int dev  __attribute__((unused)))
 {
-    // Puts the calling task to sleep on given device number
     dev_wait(dev);
 
     return 0;
