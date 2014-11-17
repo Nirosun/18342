@@ -71,6 +71,7 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 	tcb_t *s_queue = devices[dev].sleep_queue;
 	tcb_t *cur_tcb = get_cur_tcb();
 
+	// no sleeping queue
 	if(s_queue == NULL)
 	{
 		devices[dev].sleep_queue = cur_tcb;
@@ -78,7 +79,7 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 	}
 	else
 	{
-		while(s_queue->sleep_queue != NULL)
+		while(s_queue->sleep_queue != NULL) // find tail of list
 		{
 			s_queue = s_queue->sleep_queue;
 		}
@@ -89,6 +90,7 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 	
 	enable_interrupts();
 
+	// make the task blocked
 	dispatch_sleep();
 }
 
@@ -102,37 +104,36 @@ void dev_wait(unsigned int dev __attribute__((unused)))
  */
 void dev_update(unsigned long millis __attribute__((unused)))
 {
-	tcb_t *sleep_tcb, *next_tcb;
-	int i, flag = 0;
+	tcb_t *first_tcb, *next_tcb;
+	int i, flag = FALSE;
 
 	disable_interrupts();
 
 	for(i=0; i<NUM_DEVICES; i++)
 	{
-		if(devices[i].next_match < millis)
+		if(millis > devices[i].next_match)
 		{
 			devices[i].next_match = millis + dev_freq[i];
-            // Empty sleep queue
-            sleep_tcb = devices[i].sleep_queue;
-            devices[i].sleep_queue = NULL;
 
-            // Put every tcb in sleep queue into run queue
-            while (sleep_tcb != NULL)
+            first_tcb = devices[i].sleep_queue;
+
+            // wake up tasks
+            while (first_tcb != NULL)
             {
-                flag = 1;
-                runqueue_add(sleep_tcb, sleep_tcb->cur_prio);
+                flag = TRUE;
 
-                next_tcb = sleep_tcb->sleep_queue;
-                sleep_tcb->sleep_queue = NULL;
-                sleep_tcb = next_tcb;
+                next_tcb = first_tcb->sleep_queue;
+                first_tcb->sleep_queue = NULL; // out of sleep queue
+
+                runqueue_add(first_tcb, first_tcb->cur_prio);
+
+                first_tcb = next_tcb;
             }
 		}
 	}
 
-	/*
-	 * DOES THIS HELP?!
-	 */
-	if(flag == 1)
+
+	if(flag == TRUE)
     {
         dispatch_save();
     }

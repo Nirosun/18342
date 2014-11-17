@@ -79,7 +79,7 @@ void sched_init(task_t* main_task  __attribute__((unused)))
     idle_tcb->holds_lock = 0;
     idle_tcb->sleep_queue = NULL;
 
-    // Add the IDLE task to run queue
+    // Runnable
     runqueue_add(idle_tcb, IDLE_PRIO);
 }
 
