@@ -8,7 +8,7 @@
 
 #include <types.h>
 #include <assert.h>
-
+#include <inline.h>
 #include <kernel.h>
 #include <config.h>
 #include "sched_i.h"
@@ -24,14 +24,15 @@ tcb_t system_tcb[OS_MAX_TASKS]; /*allocate memory for system TCBs */
 /**
  * @brief set up the tcb for the ith task
  */
-void setup_task_context(task_t *task, tcb_t *tcb, uint8_t prio) {
+INLINE void setup_task_context(task_t *task, tcb_t *tcb, uint8_t prio) 
+{
     sched_context_t *context = &(tcb->context);
 
     context->r4  = (uint32_t)task->lambda;
     context->r5  = (uint32_t)task->data;
     context->r6  = (uint32_t)task->stack_pos;
     context->r7  = 0;
-    context->r8  = global_data;
+    context->r8  = global_data; // r8
     context->r9  = 0;
     context->r10 = 0;
     context->r11 = 0;
@@ -60,14 +61,14 @@ static void __attribute__((unused)) idle(void)
 
 void sched_init(task_t* main_task  __attribute__((unused)))
 {
-    tcb_t *idle_tcb = &(system_tcb[IDLE_PRIO]);
+    tcb_t *idle_tcb = &(system_tcb[IDLE_PRIO]); // IDLE_PRIO = 63
     sched_context_t *context = &(idle_tcb->context);
 
-    context->r4  = (uint32_t)idle;
+    context->r4  = (uint32_t)idle; // idle task
     context->r5  = (uint32_t)NULL;
     context->r6  = (uint32_t)NULL;
     context->r7  = 0;
-    context->r8  = global_data;
+    context->r8  = global_data; //r8
     context->r9  = 0;
     context->r10 = 0;
     context->r11 = 0;
@@ -79,7 +80,7 @@ void sched_init(task_t* main_task  __attribute__((unused)))
     idle_tcb->holds_lock = 0;
     idle_tcb->sleep_queue = NULL;
 
-    // Runnable
+    // runnable
     runqueue_add(idle_tcb, IDLE_PRIO);
 }
 
@@ -98,13 +99,13 @@ void sched_init(task_t* main_task  __attribute__((unused)))
  */
 void allocate_tasks(task_t** tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
 {
-    size_t i;
+    size_t i, prio; // prio starts from 1
 
-    for (i = 1; i <= num_tasks; i++) {
-        // Create tcb for current task
-        setup_task_context(&(*tasks)[i - 1], &system_tcb[i], i);
+    for (i = 0; i < num_tasks; i++) {
+        prio = i+1;
 
-        // Add current task to run queue
-        runqueue_add(&system_tcb[i], i);
+        setup_task_context(&(*tasks)[i], &system_tcb[prio], prio);
+        // make it runnable
+        runqueue_add(&system_tcb[prio], prio);
     }
 }

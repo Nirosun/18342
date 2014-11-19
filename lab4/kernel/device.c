@@ -33,6 +33,7 @@
 struct dev
 {
 	tcb_t* sleep_queue;
+	tcb_t* sleep_tail;
 	unsigned long   next_match;
 };
 typedef struct dev dev_t;
@@ -53,6 +54,7 @@ void dev_init(void)
 	for(i=0; i<NUM_DEVICES; i++)
 	{
 		devices[i].sleep_queue = NULL;
+		devices[i].sleep_tail  = NULL;
 		devices[i].next_match  = os_time+dev_freq[i];
 	} 
 }
@@ -68,24 +70,25 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 {
 	disable_interrupts();
 
-	tcb_t *s_queue = devices[dev].sleep_queue;
-	tcb_t *cur_tcb = get_cur_tcb();
+	tcb_t *s_queue  = devices[dev].sleep_queue;
+	tcb_t *tail_tcb = devices[dev].sleep_tail;
+	tcb_t *cur_tcb  = get_cur_tcb();
 
 	// no sleeping queue
 	if(s_queue == NULL)
 	{
 		devices[dev].sleep_queue = cur_tcb;
+		devices[dev].sleep_tail  = cur_tcb;
 		devices[dev].sleep_queue->sleep_queue = NULL;
 	}
 	else
 	{
-		while(s_queue->sleep_queue != NULL) // find tail of list
-		{
-			s_queue = s_queue->sleep_queue;
-		}
-		s_queue->sleep_queue = cur_tcb;
-		s_queue = s_queue->sleep_queue;
-		s_queue->sleep_queue = NULL;
+		tail_tcb->sleep_queue = cur_tcb;
+		tail_tcb = tail_tcb->sleep_queue;
+		tail_tcb->sleep_queue = NULL;
+
+		// update tail pointer
+		devices[dev].sleep_tail = tail_tcb;
 	}
 	
 	enable_interrupts();
@@ -105,8 +108,9 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 void dev_update(unsigned long millis __attribute__((unused)))
 {
 	tcb_t *first_tcb, *next_tcb;
-	int i, flag = FALSE;
+	int i;
 
+	// protect automonic
 	disable_interrupts();
 
 	for(i=0; i<NUM_DEVICES; i++)
@@ -117,26 +121,28 @@ void dev_update(unsigned long millis __attribute__((unused)))
 
             first_tcb = devices[i].sleep_queue;
 
-            // wake up tasks
-            while (first_tcb != NULL)
-            {
-                flag = TRUE;
+            if (first_tcb == NULL) // no task waiting
+            	goto end;
+            else
+            {	// wake up tasks
+            	while (first_tcb != NULL)
+	            {
+	                next_tcb = first_tcb->sleep_queue;
+	                first_tcb->sleep_queue = NULL; // out of sleep queue
 
-                next_tcb = first_tcb->sleep_queue;
-                first_tcb->sleep_queue = NULL; // out of sleep queue
+	                runqueue_add(first_tcb, first_tcb->cur_prio);
 
-                runqueue_add(first_tcb, first_tcb->cur_prio);
-
-                first_tcb = next_tcb;
-            }
+	                first_tcb = next_tcb;
+	            }
+	            goto wake_up;
+        	}	
 		}
 	}
 
+wake_up:
+    // active task from sleep queue
+    dispatch_save();
 
-	if(flag == TRUE)
-    {
-        dispatch_save();
-    }
-
+end:
 	enable_interrupts();
 }

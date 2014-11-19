@@ -30,7 +30,7 @@ void C_Irq_Handler()
  		reg_write(OSTMR_OSCR_ADDR, 0x00);
  		reg_set(OSTMR_OSSR_ADDR, OSTMR_OSSR_M0);
  		/*
- 		 * !!!
+ 		 * trigger the device schedule!!!!
  		 */
  		dev_update(os_time);
  	}
