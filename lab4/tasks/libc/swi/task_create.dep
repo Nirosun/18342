@@ -1,8 +1,0 @@
-/home/yang/Workspace/embedded/lab4/tasks/libc/swi/task_create.o:  \
- /home/yang/Workspace/embedded/lab4/tasks/libc/swi/task_create.S \
-  /home/yang/Workspace/embedded/lab4/tasks/libc/include/asm.h \
-  /home/yang/Workspace/embedded/lab4/tasks/libc/include/bits/swi.h
-
-/home/yang/Workspace/embedded/lab4/tasks/libc/include/asm.h:
-
-/home/yang/Workspace/embedded/lab4/tasks/libc/include/bits/swi.h:

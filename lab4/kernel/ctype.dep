@@ -1,8 +1,0 @@
-/home/yang/Workspace/embedded/lab4/kernel/ctype.o:  \
- /home/yang/Workspace/embedded/lab4/kernel/ctype.c \
-  /home/yang/Workspace/embedded/lab4/kernel/include/ctype.h \
-  /home/yang/Workspace/embedded/lab4/kernel/include/inline.h
-
-/home/yang/Workspace/embedded/lab4/kernel/include/ctype.h:
-
-/home/yang/Workspace/embedded/lab4/kernel/include/inline.h:
