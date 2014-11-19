@@ -76,6 +76,7 @@ int mutex_lock(int mutex  __attribute__((unused)))
 
 	mutex_t *cur_mutex = &(gtMutex[mutex]);
 	tcb_t *cur_tcb = get_cur_tcb();
+
 	// cannot acquire a holding mutex 
 	if(cur_mutex->pHolding_Tcb==cur_tcb)
 		return EDEADLOCK;
@@ -85,23 +86,21 @@ int mutex_lock(int mutex  __attribute__((unused)))
 	// block
 	if(cur_mutex->bLock)
 	{
-		tcb_t *s_queue;
+		//tcb_t *s_queue, 
+		tcb_t *tail;
 		if(cur_mutex->pSleep_queue == NULL)
 		{
 			// put cur_tcb to sleep queue
 			cur_mutex->pSleep_queue = cur_tcb;
+			cur_mutex->pSleep_tail  = cur_tcb;
 			cur_tcb->sleep_queue = NULL;
 		}
 		else
 		{
-			s_queue = cur_mutex->pSleep_queue;
-			while(s_queue->sleep_queue)
-			{
-				// move to next one in the list
-				s_queue = s_queue->sleep_queue;
-			}
-			s_queue->sleep_queue = cur_tcb;
-			cur_tcb->sleep_queue = NULL;
+			tail = cur_mutex->pSleep_tail;
+			tail->sleep_queue = cur_tcb;
+			tail = tail->sleep_queue;
+			tail->sleep_queue = NULL;
 		}
 
 		dispatch_sleep();
@@ -112,6 +111,7 @@ int mutex_lock(int mutex  __attribute__((unused)))
 		cur_mutex->bLock = 1;
 		//cur_mutex.bAvailable = 0;
 		cur_mutex->pHolding_Tcb = get_cur_tcb();
+
 		cur_tcb->cur_prio = 0;
 		cur_tcb->holds_lock += 1;
 	}
@@ -124,7 +124,7 @@ int mutex_lock(int mutex  __attribute__((unused)))
 int mutex_unlock(int mutex  __attribute__((unused)))
 {
 	mutex_t *cur_mutex = &(gtMutex[mutex]);
-	tcb_t *next_tcb, *cur_tcb = get_cur_tcb();
+	tcb_t *removed_tcb, *cur_tcb = get_cur_tcb();
 
 	disable_interrupts();
 
@@ -146,11 +146,15 @@ int mutex_unlock(int mutex  __attribute__((unused)))
 
 	if(cur_mutex->pSleep_queue)
 	{
-		next_tcb = cur_mutex->pSleep_queue;
-		cur_mutex->pSleep_queue = next_tcb->sleep_queue;
-		next_tcb->sleep_queue = NULL;
+		removed_tcb = cur_mutex->pSleep_queue;
+		cur_mutex->pSleep_queue = removed_tcb->sleep_queue;
+		
+		if(cur_mutex->pSleep_queue == NULL)
+			cur_mutex->pSleep_tail = NULL;
 
-		runqueue_add(next_tcb, next_tcb->cur_prio);
+		removed_tcb->sleep_queue = NULL;
+
+		runqueue_add(removed_tcb, removed_tcb->cur_prio);
 	}
 
 	cur_tcb->holds_lock = cur_tcb->holds_lock - 1;
