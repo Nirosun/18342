@@ -36,6 +36,7 @@ void mutex_init()
 		gtMutex[i].pHolding_Tcb = NULL;
 		gtMutex[i].bLock = 0;
 		gtMutex[i].pSleep_queue = NULL;
+		gtMutex[i].pSleep_tail = NULL;
 	}
 }
 
@@ -48,7 +49,7 @@ int mutex_create(void)
 	if(cur_mutex_num == OS_NUM_MUTEX)
 	{
 		enable_interrupts();
-		return -ENOMEM;
+		return ENOMEM;
 	}	
 
 	for(i=OS_NUM_MUTEX-1; i>=0; i--)
@@ -65,7 +66,7 @@ int mutex_create(void)
 	enable_interrupts();
 
 	// after iteration, no available left
-	return -ENOMEM;
+	return ENOMEM;
 }
 
 int mutex_lock(int mutex  __attribute__((unused)))
@@ -130,13 +131,13 @@ int mutex_unlock(int mutex  __attribute__((unused)))
 	if(mutex>OS_NUM_MUTEX || mutex<0)
 	{
 		enable_interrupts();
-		return -EINVAL;
+		return EINVAL;
 	}
 
 	if(cur_tcb!=cur_mutex->pHolding_Tcb)
 	{
 		enable_interrupts();
-		return -EPERM;	
+		return EPERM;	
 	}
 
 	// release mutex

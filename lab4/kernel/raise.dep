@@ -1,0 +1,14 @@
+/home/yang/Workspace/embedded/lab4/kernel/raise.o:  \
+ /home/yang/Workspace/embedded/lab4/kernel/raise.c \
+  /home/yang/Workspace/embedded/lab4/uboot/include/exports.h \
+  /home/yang/Workspace/embedded/lab4/kernel/include/types.h \
+  /home/yang/Workspace/embedded/lab4/kernel/include/stdarg.h \
+  /home/yang/Workspace/embedded/lab4/uboot/include/_exports.h
+
+/home/yang/Workspace/embedded/lab4/uboot/include/exports.h:
+
+/home/yang/Workspace/embedded/lab4/kernel/include/types.h:
+
+/home/yang/Workspace/embedded/lab4/kernel/include/stdarg.h:
+
+/home/yang/Workspace/embedded/lab4/uboot/include/_exports.h:

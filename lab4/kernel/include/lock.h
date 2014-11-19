@@ -23,6 +23,7 @@ struct mutex
 	tcb_t*	pHolding_Tcb;	/* who are using this mutex */
 	bool_e	bLock;			/* 1 for lock/0 for unlock */	
 	tcb_t*	pSleep_queue;	/* list of applications waiting for this mutex */
+	tcb_t* 	pSleep_tail;
 };
 typedef struct mutex mutex_t;
 
