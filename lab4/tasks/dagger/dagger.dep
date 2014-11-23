@@ -1,0 +1,23 @@
+/home/niro/lab/labs/lab4/tasks/dagger/dagger.o:  \
+ /home/niro/lab/labs/lab4/tasks/dagger/dagger.c \
+  /home/niro/lab/labs/lab4/tasks/libc/include/stdio.h \
+  /home/niro/lab/labs/lab4/tasks/libc/include/stdarg.h \
+  /home/niro/lab/labs/lab4/tasks/libc/include/sys/types.h \
+  /home/niro/lab/labs/lab4/tasks/libc/include/bits/types.h \
+  /home/niro/lab/labs/lab4/tasks/libc/include/task.h \
+  /home/niro/lab/labs/lab4/tasks/libc/include/unistd.h \
+  /home/niro/lab/labs/lab4/tasks/libc/include/bits/fileno.h
+
+/home/niro/lab/labs/lab4/tasks/libc/include/stdio.h:
+
+/home/niro/lab/labs/lab4/tasks/libc/include/stdarg.h:
+
+/home/niro/lab/labs/lab4/tasks/libc/include/sys/types.h:
+
+/home/niro/lab/labs/lab4/tasks/libc/include/bits/types.h:
+
+/home/niro/lab/labs/lab4/tasks/libc/include/task.h:
+
+/home/niro/lab/labs/lab4/tasks/libc/include/unistd.h:
+
+/home/niro/lab/labs/lab4/tasks/libc/include/bits/fileno.h:

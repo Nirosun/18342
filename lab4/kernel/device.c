@@ -154,8 +154,8 @@ void dev_update(unsigned long millis __attribute__((unused)))
 	if (needDispatch) 
 	{
 		//goto wake_up;
-		uint8_t prio = highest_prio();
-		if (cur_tcb -> cur_prio > prio)
+		uint8_t hi_prio = highest_prio();
+		if (cur_tcb -> cur_prio > hi_prio)
 		{
 			dispatch_save();
 		}
