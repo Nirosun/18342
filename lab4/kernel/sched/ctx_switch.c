@@ -51,18 +51,21 @@ void dispatch_save(void)
 	 * #2 Update cur_tcb for getter
 	 * #3 ctx switch
 	 */
+	 //if (cur_tcb -> cur_prio > highest_prio())
+	 //{
+	 	// place cur tcb in queue, wait for next time slice
+		tcb_t* temp_tcb = cur_tcb;
+		runqueue_add(temp_tcb, temp_tcb->cur_prio);
 
-	// place cur tcb in queue, wait for next time slice
-	tcb_t* temp_tcb = cur_tcb;
-	runqueue_add(temp_tcb, temp_tcb->cur_prio);
+		// get task with highest prio in ready list for getter
+		uint8_t hi_prio = highest_prio();
+		tcb_t* next_tcb =runqueue_remove(hi_prio);
+		cur_tcb = next_tcb;
 
-	// get task with highest prio in ready list for getter
-	uint8_t hi_prio = highest_prio();
-	tcb_t* next_tcb =runqueue_remove(hi_prio);
-	cur_tcb = next_tcb;
+		// ctx switch with status save
+		ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));
+	 //}
 
-	// ctx switch with status save
-	ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));
 
 }
 

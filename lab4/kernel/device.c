@@ -17,6 +17,8 @@
 #include <arm/exception.h>
 #include <util.h>
 
+ #include <exports.h>
+
 /**
  * @brief Fake device maintainence structure.
  * Since our tasks are periodic, we can represent 
@@ -108,7 +110,9 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 void dev_update(unsigned long millis __attribute__((unused)))
 {
 	tcb_t *first_tcb, *next_tcb;
+	//tcb_t *cur_tcb  = get_cur_tcb();
 	int i;
+	int needDispatch = 0;
 
 	// protect automonic
 	disable_interrupts();
@@ -119,30 +123,54 @@ void dev_update(unsigned long millis __attribute__((unused)))
 		{
 			devices[i].next_match = millis + dev_freq[i];
 
-            first_tcb = devices[i].sleep_queue;
+            first_tcb = devices[i].sleep_queue; 
 
-            if (first_tcb == NULL) // no task waiting
-            	goto end;
-            else
+            //if (first_tcb == NULL) // no task waiting
+            //	continue;
+            	//goto end;
+            
+            if (first_tcb != NULL)
             {	// wake up tasks
             	while (first_tcb != NULL)
 	            {
 	                next_tcb = first_tcb->sleep_queue;
 	                first_tcb->sleep_queue = NULL; // out of sleep queue
 
+	                //needDispatch = 1;
+
 	                runqueue_add(first_tcb, first_tcb->cur_prio);
 
 	                first_tcb = next_tcb;
 	            }
-	            goto wake_up;
+	            devices[i].sleep_tail = NULL;
+	            //goto wake_up;
+	            needDispatch = 1;
         	}	
 		}
 	}
 
-wake_up:
     // active task from sleep queue
-    dispatch_save();
+//wake_up:
+	if (needDispatch) 
+	{
+		//goto wake_up;
+		//if (cur_tcb -> cur_prio > highest_prio())
+		//{
+			dispatch_save();
+		//}
+		//else
+		//{
+		//	goto end;
+		//}
+	}
+	/*else
+	{
+		goto end;
+	}*/
 
-end:
+//wake_up:
+//	dispatch_save();    
+
+//end:
 	enable_interrupts();
 }

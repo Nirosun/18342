@@ -71,7 +71,7 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 	init_os_time();
     runqueue_init();
     dev_init();
-    sched_init(NULL);
+    //sched_init(NULL);
 
 	ret_val = Load_User(argc, argv);
 	
