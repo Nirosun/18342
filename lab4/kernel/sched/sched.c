@@ -101,7 +101,8 @@ void allocate_tasks(task_t** tasks  __attribute__((unused)), size_t num_tasks  _
 {
     size_t i, prio; // prio starts from 1
 
-    for (i = 0; i < num_tasks; i++) {
+    for (i = 0; i < num_tasks; i++) 
+    {
         prio = i+1;
 
         setup_task_context(&(*tasks)[i], &system_tcb[prio], prio);

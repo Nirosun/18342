@@ -22,7 +22,7 @@ Load_User:
         mov	r2, #0
         str	r2, [sp, #-4]!		@ push <NULL> on top of stack
         mov	r3, r0
-	mov	r3, r3, LSL #2
+@	mov	r3, r3, LSL #2
 
         @ r8!r8!r8!
         ldr r12, =global_data

@@ -51,23 +51,18 @@ void dispatch_save(void)
 	 * #2 Update cur_tcb for getter
 	 * #3 ctx switch
 	 */
-	 //putc('\0');
-	 //if (cur_tcb -> cur_prio > highest_prio())
-	 //{
-	 	//putc('\0');
-	 	// place cur tcb in queue, wait for next time slice
-		tcb_t* temp_tcb = cur_tcb;
-		runqueue_add(temp_tcb, temp_tcb->cur_prio);
 
-		// get task with highest prio in ready list for getter
-		uint8_t hi_prio = highest_prio();
-		tcb_t* next_tcb =runqueue_remove(hi_prio);
-		cur_tcb = next_tcb;
+ 	// place cur tcb in queue, wait for next time slice
+	tcb_t* temp_tcb = cur_tcb;
+	runqueue_add(temp_tcb, temp_tcb->cur_prio);
 
-		// ctx switch with status save
-		ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));
-	 //}
+	// get task with highest prio in ready list for getter
+	uint8_t hi_prio = highest_prio();
+	tcb_t* next_tcb =runqueue_remove(hi_prio);
+	cur_tcb = next_tcb;
 
+	// ctx switch with status save
+	ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));
 
 }
 
@@ -83,12 +78,16 @@ void dispatch_nosave(void)
 	printf("i'm dispatch_nosave..\n");
 #endif
 
+	//printf("Enter dispatch_nosave\n");
+
 	uint8_t hi_prio = highest_prio();
 	tcb_t* next_tcb =runqueue_remove(hi_prio);
 	
 	// ctx switch to new task
 	cur_tcb = next_tcb;
 	ctx_switch_half(&(next_tcb->context));
+
+	//printf("Leave dispatch_nosave\n");
 }
 
 
@@ -100,6 +99,7 @@ void dispatch_nosave(void)
  */
 void dispatch_sleep(void)
 {
+	//printf("Enter dispatch_sleep\n");
 	tcb_t* temp_tcb = cur_tcb;
 
 	uint8_t hi_prio = highest_prio();

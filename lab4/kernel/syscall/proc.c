@@ -32,7 +32,7 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
     // Allocate user-stacks and init kernel contexts of thread
     allocate_tasks(&tasks, num_tasks);
 
-    sched_init(NULL);
+    //sched_init(NULL);
 
     dispatch_nosave();
 

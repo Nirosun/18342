@@ -119,7 +119,7 @@ void dev_update(unsigned long millis __attribute__((unused)))
 
 	for(i=0; i<NUM_DEVICES; i++)
 	{
-		if(millis > devices[i].next_match)
+		if(millis >= devices[i].next_match)
 		{
 			devices[i].next_match = millis + dev_freq[i];
 
@@ -154,7 +154,8 @@ void dev_update(unsigned long millis __attribute__((unused)))
 	if (needDispatch) 
 	{
 		//goto wake_up;
-		if (cur_tcb -> cur_prio > highest_prio())
+		uint8_t prio = highest_prio();
+		if (cur_tcb -> cur_prio > prio)
 		{
 			dispatch_save();
 		}

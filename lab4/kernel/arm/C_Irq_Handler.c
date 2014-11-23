@@ -32,6 +32,7 @@ void C_Irq_Handler()
  		/*
  		 * trigger the device schedule!!!!
  		 */
+ 		//printf("os_time: %d\n", (int)os_time);
  		dev_update(os_time);
  	}
  	else
