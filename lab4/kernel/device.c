@@ -110,7 +110,7 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 void dev_update(unsigned long millis __attribute__((unused)))
 {
 	tcb_t *first_tcb, *next_tcb;
-	//tcb_t *cur_tcb  = get_cur_tcb();
+	tcb_t *cur_tcb  = get_cur_tcb();
 	int i;
 	int needDispatch = 0;
 
@@ -154,14 +154,15 @@ void dev_update(unsigned long millis __attribute__((unused)))
 	if (needDispatch) 
 	{
 		//goto wake_up;
-		//if (cur_tcb -> cur_prio > highest_prio())
-		//{
+		if (cur_tcb -> cur_prio > highest_prio())
+		{
 			dispatch_save();
-		//}
-		//else
-		//{
+		}
+		else
+		{
 		//	goto end;
-		//}
+			putc('\0');		// WHY must need this...unhappy...
+		}
 	}
 	/*else
 	{

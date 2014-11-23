@@ -51,8 +51,10 @@ void dispatch_save(void)
 	 * #2 Update cur_tcb for getter
 	 * #3 ctx switch
 	 */
+	 //putc('\0');
 	 //if (cur_tcb -> cur_prio > highest_prio())
 	 //{
+	 	//putc('\0');
 	 	// place cur tcb in queue, wait for next time slice
 		tcb_t* temp_tcb = cur_tcb;
 		runqueue_add(temp_tcb, temp_tcb->cur_prio);
