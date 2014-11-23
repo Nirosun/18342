@@ -41,16 +41,16 @@ void fun2(void* str)
 int main(int argc, char** argv)
 {
 	task_t tasks[2];
-	tasks[0].lambda = fun1;
+	tasks[0].lambda = fun2;
 	tasks[0].data = (void*)'@';
 	tasks[0].stack_pos = (void*)0xa2000000;
 	tasks[0].C = 1;
-	tasks[0].T = PERIOD_DEV0;
-	tasks[1].lambda = fun2;
+	tasks[0].T = PERIOD_DEV1;
+	tasks[1].lambda = fun1;
 	tasks[1].data = (void*)'<';
 	tasks[1].stack_pos = (void*)0xa1000000;
 	tasks[1].C = 1;
-	tasks[1].T = PERIOD_DEV1;
+	tasks[1].T = PERIOD_DEV0;
 
 	//puts("Of course your code get here!\n");
 

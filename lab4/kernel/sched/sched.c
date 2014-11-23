@@ -21,6 +21,26 @@
 
 tcb_t system_tcb[OS_MAX_TASKS]; /*allocate memory for system TCBs */
 
+
+void sort(task_t* tasks, size_t num_tasks)
+{
+    size_t i = 0;
+    size_t j = 0;
+
+    for (i = 0; i < num_tasks; i ++)
+    {
+        for (j = i + 1; j < num_tasks; j ++)
+        {
+            if (tasks[j].T < tasks[i].T)
+            {
+                task_t tmp = tasks[j];
+                tasks[j] = tasks[i];
+                tasks[i] = tmp;
+            }
+        }
+    }
+}
+
 /**
  * @brief set up the tcb for the ith task
  */
@@ -34,7 +54,7 @@ INLINE void setup_task_context(task_t *task, tcb_t *tcb, uint8_t prio)
     context->r7  = 0;
     context->r8  = global_data; // r8
     context->r9  = 0;
-    context->r10 = 0;
+    context->r10 = 0; 
     context->r11 = 0;
     context->sp  = (void *)tcb->kstack_high;
     context->lr  = launch_task;
@@ -100,6 +120,8 @@ void sched_init(task_t* main_task  __attribute__((unused)))
 void allocate_tasks(task_t** tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
 {
     size_t i, prio; // prio starts from 1
+
+    sort(*tasks, num_tasks);
 
     for (i = 0; i < num_tasks; i++) 
     {
