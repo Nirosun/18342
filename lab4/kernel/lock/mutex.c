@@ -83,11 +83,11 @@ int mutex_lock(int mutex  __attribute__((unused)))
 	disable_interrupts();
 
 	// cannot acquire a holding mutex 
-	if(cur_mutex->pHolding_Tcb==cur_tcb)
+	/*if(cur_mutex->pHolding_Tcb==cur_tcb)
 	{
 		enable_interrupts();
 		return -EDEADLOCK;
-	}	
+	}	*/
 
 	// block
 	if(cur_mutex->bLock)
@@ -112,9 +112,14 @@ int mutex_lock(int mutex  __attribute__((unused)))
 		}
 		printf("ready to put sleep queue\n");
 
-		enable_interrupts();
+		cur_tcb->block_mutex = 1;
+
+		//enable_interrupts();
 
 		dispatch_sleep();
+
+		enable_interrupts();
+
 		printf("why are you here????\n");
 	}
 	// unblock	
@@ -168,6 +173,8 @@ int mutex_unlock(int mutex  __attribute__((unused)))
 			cur_mutex->pSleep_tail = NULL;
 
 		removed_tcb->sleep_queue = NULL;
+
+		removed_tcb->block_mutex = 0;
 
 		runqueue_add(removed_tcb, removed_tcb->cur_prio);
 	}

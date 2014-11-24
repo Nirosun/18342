@@ -36,9 +36,12 @@ void fun1(void* str)
 		if(even_t1) {	
 			// first and last s
 			//printf("Time: %d\n", (int)time());
+			//printf("fun1\n");
 			putchar((int)str);
 			// terminating
 			if(once >0) {
+				//printf("Time: %d\n", (int)time());
+				//printf("fun1\n");
 				putchar((int)'!');
 				while(1) mid++;
 			}
@@ -48,10 +51,12 @@ void fun1(void* str)
  		else {
 			// should not succeed right away
 
-			printf("lock for fun1\n");
+			//printf("lock for fun1\n");
 			mutex_lock(mid);
 			// prints e
-			printf("WTF pass the lock\n");
+			//printf("pass the lock\n");
+			//printf("Time: %d\n", (int)time());
+			//printf("fun1\n");
 			putchar((int)'e');
 			even_t1 = 1;
 
@@ -74,16 +79,18 @@ void fun2(void* str)
 		if(even_t2) {
 			// prints u
 			//printf("Time: %d\n", (int)time());
+			//printf("fun2\n");
 			putchar((int)str);
 			even_t2 = 0;
 		}
  		else {
 			// should not succeed right away
 
-			printf("lock for fun2\n");
+			//printf("lock for fun2\n");
 			mutex_lock(mid);
 			// prints s!
 			//printf("Time: %d\n", (int)time());
+			//printf("fun2\n");
 			putchar((int)'S');
 		}
 		if (event_wait(1) < 0)
@@ -97,11 +104,13 @@ void fun3(void* str)
 	{
 		//c 
 		//printf("Time: %d\n", (int)time());
+
+		//printf("fun3\n");
 		putchar((int)str);
 		if(even_t3) {
 			// should succeed
 
-			printf("lock for fun3\n");
+			//printf("lock for fun3\n");
 			mutex_lock(mid);
 			even_t3 = 0;
 		} else {

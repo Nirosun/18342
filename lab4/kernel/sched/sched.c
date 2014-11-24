@@ -63,6 +63,8 @@ INLINE void setup_task_context(task_t *task, tcb_t *tcb, uint8_t prio)
     tcb->cur_prio = prio;
     tcb->holds_lock = 0;
     tcb->sleep_queue = NULL;
+
+    tcb->block_mutex = 0;
 }
 
 /**
@@ -99,6 +101,8 @@ void sched_init(task_t* main_task  __attribute__((unused)))
     idle_tcb->cur_prio = IDLE_PRIO;
     idle_tcb->holds_lock = 0;
     idle_tcb->sleep_queue = NULL;
+
+    idle_tcb->block_mutex=0;
 
     // runnable
     runqueue_add(idle_tcb, IDLE_PRIO);

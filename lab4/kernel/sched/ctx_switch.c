@@ -60,10 +60,17 @@ void dispatch_save(void)
 		// get task with highest prio in ready list for getter
 		uint8_t hi_prio = highest_prio();
 		tcb_t* next_tcb =runqueue_remove(hi_prio);
-		cur_tcb = next_tcb;
 
-		// ctx switch with status save
-		ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));	 	
+		//if (next_tcb->holds_lock == 1 || next_tcb->block_mutex == 0)
+		if (next_tcb->block_mutex == 0)
+		{
+			cur_tcb = next_tcb;
+
+			// ctx switch with status save
+			ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));	
+		}
+
+ 	
 	 //}
 
 }
@@ -106,10 +113,15 @@ void dispatch_sleep(void)
 
 	uint8_t hi_prio = highest_prio();
 	tcb_t* next_tcb =runqueue_remove(hi_prio);
-	cur_tcb = next_tcb;
 
-	// ctx switch with status save
-	ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));
+	//if (next_tcb->holds_lock == 1 || next_tcb->block_mutex == 0)
+	if (next_tcb->block_mutex == 0)
+	{
+		cur_tcb = next_tcb;
+
+		// ctx switch with status save
+		ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));		
+	}
 }
 
 /**

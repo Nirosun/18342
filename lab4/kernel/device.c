@@ -93,10 +93,12 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 		devices[dev].sleep_tail = tail_tcb;
 	}
 	
-	enable_interrupts();
+	//enable_interrupts();
 
 	// make the task blocked
 	dispatch_sleep();
+
+	enable_interrupts();
 }
 
 
