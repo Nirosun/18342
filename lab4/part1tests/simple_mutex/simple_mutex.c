@@ -30,12 +30,9 @@ void fun1(void* str)
 {
 	// On first pass, create the shared mutex
 	mid = mutex_create();
-	printf("mid is: %d\n", mid);
-
 	while(1) {
 		if(even_t1) {	
 			// first and last s
-			//printf("Time: %d\n", (int)time());
 			putchar((int)str);
 			// terminating
 			if(once >0) {
@@ -47,19 +44,11 @@ void fun1(void* str)
 		}	 
  		else {
 			// should not succeed right away
-
-			printf("lock for fun1\n");
 			mutex_lock(mid);
 			// prints e
-			printf("WTF pass the lock\n");
 			putchar((int)'e');
 			even_t1 = 1;
-
-			//printf("After e\n");
-
 			mutex_unlock(mid);
-
-			//printf("After unlock\n");
 		}		
 		if (event_wait(0) < 0) {
 				panic("Dev 0 failed");
@@ -73,17 +62,13 @@ void fun2(void* str)
 	{
 		if(even_t2) {
 			// prints u
-			//printf("Time: %d\n", (int)time());
 			putchar((int)str);
 			even_t2 = 0;
 		}
  		else {
 			// should not succeed right away
-
-			printf("lock for fun2\n");
 			mutex_lock(mid);
 			// prints s!
-			//printf("Time: %d\n", (int)time());
 			putchar((int)'S');
 		}
 		if (event_wait(1) < 0)
@@ -96,12 +81,9 @@ void fun3(void* str)
 	while(1)
 	{
 		//c 
-		//printf("Time: %d\n", (int)time());
 		putchar((int)str);
 		if(even_t3) {
 			// should succeed
-
-			printf("lock for fun3\n");
 			mutex_lock(mid);
 			even_t3 = 0;
 		} else {

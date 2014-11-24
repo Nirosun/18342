@@ -9,6 +9,7 @@
  */
  
 #include <kernel.h>
+#include <lock.h>
 #include <task.h>
 #include <sched.h>
 #include <device.h>
@@ -72,6 +73,7 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
     runqueue_init();
     dev_init();
     sched_init(NULL);
+    mutex_init();
 
 	ret_val = Load_User();
 	

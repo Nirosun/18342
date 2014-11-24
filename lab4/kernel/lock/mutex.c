@@ -17,9 +17,9 @@
 #include <bits/errno.h>
 #include <arm/psr.h>
 #include <arm/exception.h>
-#ifdef DEBUG_MUTEX
+//#ifdef DEBUG_MUTEX
 #include <exports.h> // temp
-#endif
+//#endif
 
 #define NULL (void *)0
 
@@ -32,7 +32,7 @@ void mutex_init()
 	int i;
 	for(i=0; i<OS_NUM_MUTEX; i++)
 	{
-		gtMutex[i].bAvailable = 1;
+		gtMutex[i].bAvailable = TRUE;
 		gtMutex[i].pHolding_Tcb = NULL;
 		gtMutex[i].bLock = 0;
 		gtMutex[i].pSleep_queue = NULL;
@@ -49,14 +49,16 @@ int mutex_create(void)
 	if(cur_mutex_num == OS_NUM_MUTEX)
 	{
 		enable_interrupts();
-		return ENOMEM;
+		return -ENOMEM;
 	}	
 
 	for(i=OS_NUM_MUTEX-1; i>=0; i--)
 	{
+		//printf("i: %d, avail: %d\n", i, (int)gtMutex[i].bAvailable);
 		if(gtMutex[i].bAvailable) // still availble mutex left
 		{
 			gtMutex[i].bAvailable = 0;
+
 			return i;
 		}
 	}
@@ -66,22 +68,26 @@ int mutex_create(void)
 	enable_interrupts();
 
 	// after iteration, no available left
-	return ENOMEM;
+	return -ENOMEM;
 }
 
 int mutex_lock(int mutex  __attribute__((unused)))
 {
-	if(mutex >= OS_NUM_MUTEX) 
-		return EINVAL;
+	if(mutex >= OS_NUM_MUTEX || mutex < 0) 
+		return -EINVAL;
 
 	mutex_t *cur_mutex = &(gtMutex[mutex]);
 	tcb_t *cur_tcb = get_cur_tcb();
 
-	// cannot acquire a holding mutex 
-	if(cur_mutex->pHolding_Tcb==cur_tcb)
-		return EDEADLOCK;
 
 	disable_interrupts();
+
+	// cannot acquire a holding mutex 
+	if(cur_mutex->pHolding_Tcb==cur_tcb)
+	{
+		enable_interrupts();
+		return -EDEADLOCK;
+	}	
 
 	// block
 	if(cur_mutex->bLock)
@@ -90,6 +96,7 @@ int mutex_lock(int mutex  __attribute__((unused)))
 		tcb_t *tail;
 		if(cur_mutex->pSleep_queue == NULL)
 		{
+			printf("block - queue empty\n");
 			// put cur_tcb to sleep queue
 			cur_mutex->pSleep_queue = cur_tcb;
 			cur_mutex->pSleep_tail  = cur_tcb;
@@ -97,17 +104,23 @@ int mutex_lock(int mutex  __attribute__((unused)))
 		}
 		else
 		{
+			printf("block - queue not empty\n");
 			tail = cur_mutex->pSleep_tail;
 			tail->sleep_queue = cur_tcb;
 			tail = tail->sleep_queue;
 			tail->sleep_queue = NULL;
 		}
+		printf("ready to put sleep queue\n");
+
+		enable_interrupts();
 
 		dispatch_sleep();
+		printf("why are you here????\n");
 	}
 	// unblock	
 	else
 	{
+		printf("shouldn't block\n");
 		cur_mutex->bLock = 1;
 		//cur_mutex.bAvailable = 0;
 		cur_mutex->pHolding_Tcb = get_cur_tcb();
@@ -117,6 +130,8 @@ int mutex_lock(int mutex  __attribute__((unused)))
 	}
 
 	enable_interrupts();
+
+	printf("leaving mutex_lock\n");
 
 	return 0;
 }
@@ -128,16 +143,16 @@ int mutex_unlock(int mutex  __attribute__((unused)))
 
 	disable_interrupts();
 
-	if(mutex>OS_NUM_MUTEX || mutex<0)
+	if(mutex >= OS_NUM_MUTEX || mutex<0)
 	{
 		enable_interrupts();
-		return EINVAL;
+		return -EINVAL;
 	}
 
 	if(cur_tcb!=cur_mutex->pHolding_Tcb)
 	{
 		enable_interrupts();
-		return EPERM;	
+		return -EPERM;	
 	}
 
 	// release mutex

@@ -101,7 +101,7 @@ void dispatch_nosave(void)
  */
 void dispatch_sleep(void)
 {
-	//printf("Enter dispatch_sleep\n");
+	printf("Enter dispatch_sleep\n");
 	tcb_t* temp_tcb = cur_tcb;
 
 	uint8_t hi_prio = highest_prio();
