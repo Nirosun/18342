@@ -122,6 +122,10 @@ void dispatch_sleep(void)
 		// ctx switch with status save
 		ctx_switch_full(&(next_tcb->context), &(temp_tcb->context));		
 	}
+	else
+	{
+		putc('\0');
+	}
 }
 
 /**

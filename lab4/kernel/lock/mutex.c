@@ -124,13 +124,13 @@ int mutex_lock(int mutex  __attribute__((unused)))
 
 		enable_interrupts();
 
-		printf("why are you here????\n");	// CANNOT DALETE!!!
+		//printf("why are you here????\n");	// CANNOT DALETE!!!
 		//test();
 	}
 	// unblock	
 	else
 	{
-		printf("shouldn't block\n");	// CANNOT DELETE!!!
+		//printf("shouldn't block\n");	// CANNOT DELETE!!!
 		cur_mutex->bLock = 1;
 		//cur_mutex.bAvailable = 0;
 		cur_mutex->pHolding_Tcb = get_cur_tcb();
@@ -141,7 +141,7 @@ int mutex_lock(int mutex  __attribute__((unused)))
 
 	enable_interrupts();
 
-	printf("leaving mutex_lock\n");		// CANNOT DELETE!!!
+	//printf("leaving mutex_lock\n");		// CANNOT DELETE!!!
 
 	return 0;
 }
