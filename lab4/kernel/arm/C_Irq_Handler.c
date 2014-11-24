@@ -24,7 +24,7 @@ void C_Irq_Handler()
 
  	if(icpr & mask)
  	{
- 		os_time ++;	 // 10 ms
+ 		os_time += 1;	 // 10 ms
 
 		/* restart */
  		reg_write(OSTMR_OSCR_ADDR, 0x00);
