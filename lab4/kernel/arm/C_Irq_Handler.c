@@ -11,9 +11,10 @@
 #include <arm/reg.h>
 #include <arm/interrupt.h>
 #include <device.h>
-#include "constant.h"
+#include <config.h> 
+//#include "constant.h"
 
-extern unsigned long os_time;
+extern volatile unsigned long os_time;
 
 void C_Irq_Handler()
 {
@@ -24,7 +25,8 @@ void C_Irq_Handler()
 
  	if(icpr & mask)
  	{
- 		os_time += 1;	 // 10 ms
+ 		os_time += OS_TIMER_RESOLUTION;	 // 10 ms
+ 		//os_time ++;
 
 		/* restart */
  		reg_write(OSTMR_OSCR_ADDR, 0x00);

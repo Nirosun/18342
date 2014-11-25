@@ -20,6 +20,7 @@ unsigned long time_syscall(void)
 	 * return the volatile system time. unit:second
 	 */ 
 	return os_time * ((unsigned long)10);
+	//return os_time;
 }
 
 
@@ -33,6 +34,7 @@ unsigned long time_syscall(void)
 void sleep_syscall(unsigned long millis  __attribute__((unused)))
 {	
  	unsigned int finish_time = os_time + millis / OS_TIMER_RESOLUTION;
+ 	//unsigned int finish_time = os_time + millis;
  	while (os_time < finish_time);
  		// do nothing, wait
  	return;
