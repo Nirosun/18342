@@ -41,7 +41,12 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
 
 int event_wait(unsigned int dev  __attribute__((unused)))
 {
-    dev_wait(dev);
+    if(dev>OS_AVAIL_TASKS)
+        return -EINVAL;
+
+    dev = dev % 4;
+
+    dev_wait(dev-1);
 
     return 0;
 }

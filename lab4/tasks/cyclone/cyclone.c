@@ -34,6 +34,7 @@ void fun1(void* str)
 		}
 	}
 	sleep(ct * 10);
+	//printf("ct = %d\n", ct);
 	printf("Time now is %lu\n",time());
 
 	task_t tasks[1];

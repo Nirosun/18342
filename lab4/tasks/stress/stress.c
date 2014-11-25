@@ -28,7 +28,7 @@ void fun1(void* str)
 	while(1)
 	{	
 		if(flag == 0) {	
-			printf("Time is now %lu\n",time());
+			//printf("Time is now %lu\n",time());
 		}
 		score[(int)str]++;
 		sleep((int)str);
@@ -39,6 +39,7 @@ void fun1(void* str)
 
 void fun2(void* str)
 {
+	printf("!!!!!!!fun2!!!!!!!!!\n");
 	int i;
 	while(1)
 	{
@@ -46,9 +47,12 @@ void fun2(void* str)
 			once++;
 			puts("One more time");
 		}
-    else {
+    	else {
 			// check RMA
 			for(i=0;i<(NUM_TASK-2);i++) {
+
+				printf("I am fun2's loop; i=%d\n", i);
+				
 				if(score[i] < score[i+1]) {
 					printf("RMA check failed on %d\n",i);
 					puts("xxxxxxxxxx Test FAIL xxxxxxxx");
