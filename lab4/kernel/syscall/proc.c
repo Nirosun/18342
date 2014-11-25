@@ -29,6 +29,18 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
 {
     disable_interrupts();
 
+    if (num_tasks >= OS_AVAIL_TASKS || num_tasks <= 0)
+    {
+        enable_interrupts();
+        return -EINVAL;
+    }
+
+    if(!valid_addr((void *)tasks, num_tasks, (uintptr_t)USR_START_ADDR, (uintptr_t)USR_END_ADDR))
+    {
+        enable_interrupts();
+        return -EFAULT;
+    }
+
     // Allocate user-stacks and init kernel contexts of thread
     allocate_tasks(&tasks, num_tasks);
 
@@ -41,12 +53,15 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
 
 int event_wait(unsigned int dev  __attribute__((unused)))
 {
-    if(dev>OS_AVAIL_TASKS)
+    if(dev >= NUM_DEVICES)
+    {
+        //printf("Invalid device\n");
         return -EINVAL;
+    }
 
-    dev = dev % 4;
+    //dev = dev % 4;
 
-    dev_wait(dev-1);
+    dev_wait(dev);
 
     return 0;
 }

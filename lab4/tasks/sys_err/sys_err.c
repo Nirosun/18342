@@ -30,6 +30,7 @@ void fun1(void* str)
 		ind = mutex_create();
 	}
 	ret2 = mutex_create();
+	printf("ret of mutex_create: %d\n", ret2);
 	check_return(errno,ENOMEM,"3. Mutex Create returns ENOMEM");
 	ret2 = mutex_unlock(165);
 	check_return(errno,EINVAL,"4. Mutex Unlock return EINVAL");
@@ -66,9 +67,11 @@ int main(int argc, char** argv)
 
 	// this should fail and return EINVAL
 	ret = task_create(tasks, 65);
+	printf("ret of task_create: %d\n", ret);
 	check_return(errno,EINVAL,"1. Test create return EINVAL");
 	// this should return EFAULT
 	ret = task_create((task_t *)0xdeadbeef, 30);
+	printf("ret of task_create: %d\n", ret);
 	check_return(errno,EFAULT,"2. Test create return EFAULT");
 	
 	ret = task_create(tasks, 1);

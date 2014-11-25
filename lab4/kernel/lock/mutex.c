@@ -71,10 +71,6 @@ int mutex_create(void)
 	return -ENOMEM;
 }
 
-void test() {
-	return;
-}
-
 int mutex_lock(int mutex  __attribute__((unused)))
 {
 	if(mutex >= OS_NUM_MUTEX || mutex < 0) 
@@ -87,11 +83,11 @@ int mutex_lock(int mutex  __attribute__((unused)))
 	disable_interrupts();
 
 	// cannot acquire a holding mutex 
-	/*if(cur_mutex->pHolding_Tcb==cur_tcb)
+	if(cur_mutex->pHolding_Tcb==cur_tcb)
 	{
 		enable_interrupts();
 		return -EDEADLOCK;
-	}	*/
+	}
 
 	// block
 	if(cur_mutex->bLock)
