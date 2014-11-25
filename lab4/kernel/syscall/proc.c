@@ -55,11 +55,8 @@ int event_wait(unsigned int dev  __attribute__((unused)))
 {
     if(dev >= NUM_DEVICES)
     {
-        //printf("Invalid device\n");
         return -EINVAL;
     }
-
-    //dev = dev % 4;
 
     dev_wait(dev);
 

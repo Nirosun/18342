@@ -2,10 +2,10 @@
  *
  * @brief kernel main
  *
- * @author 
+ * @author Yang Wu <yangwu@andrew.cmu.edu>
+ *	       Zhengyang Zuo <zzuo@andrew.cmu.edu>
  *	   
- *	   
- * @date   
+ * @date   11/24/2014
  */
  
 #include <kernel.h>

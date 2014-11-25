@@ -92,11 +92,9 @@ int mutex_lock(int mutex  __attribute__((unused)))
 	// block
 	if(cur_mutex->bLock)
 	{
-		//tcb_t *s_queue, 
 		tcb_t *tail;
 		if(cur_mutex->pSleep_queue == NULL)
 		{
-			//printf("block - queue empty\n");
 			// put cur_tcb to sleep queue
 			cur_mutex->pSleep_queue = cur_tcb;
 			cur_mutex->pSleep_tail  = cur_tcb;
@@ -104,31 +102,22 @@ int mutex_lock(int mutex  __attribute__((unused)))
 		}
 		else
 		{
-			//printf("block - queue not empty\n");
 			tail = cur_mutex->pSleep_tail;
 			tail->sleep_queue = cur_tcb;
 			tail = tail->sleep_queue;
 			tail->sleep_queue = NULL;
 		}
-		//printf("ready to put sleep queue\n");
 
 		cur_tcb->block_mutex = 1;
-
-		//enable_interrupts();
-
+		
 		dispatch_sleep();
 
 		enable_interrupts();
-
-		//printf("why are you here????\n");	// CANNOT DALETE!!!
-		//test();
 	}
 	// unblock	
 	else
 	{
-		//printf("shouldn't block\n");	// CANNOT DELETE!!!
 		cur_mutex->bLock = 1;
-		//cur_mutex.bAvailable = 0;
 		cur_mutex->pHolding_Tcb = get_cur_tcb();
 
 		cur_tcb->cur_prio = 0;
@@ -136,8 +125,6 @@ int mutex_lock(int mutex  __attribute__((unused)))
 	}
 
 	enable_interrupts();
-
-	//printf("leaving mutex_lock\n");		// CANNOT DELETE!!!
 
 	return 0;
 }

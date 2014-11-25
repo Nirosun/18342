@@ -93,8 +93,6 @@ void dev_wait(unsigned int dev __attribute__((unused)))
 		devices[dev].sleep_tail = tail_tcb;
 	}
 	
-	//enable_interrupts();
-
 	// make the task blocked
 	dispatch_sleep();
 
@@ -126,10 +124,6 @@ void dev_update(unsigned long millis __attribute__((unused)))
 			devices[i].next_match = millis + dev_freq[i];
 
             first_tcb = devices[i].sleep_queue; 
-
-            //if (first_tcb == NULL) // no task waiting
-            //	continue;
-            	//goto end;
             
             if (first_tcb != NULL)
             {	// wake up tasks
@@ -138,43 +132,26 @@ void dev_update(unsigned long millis __attribute__((unused)))
 	                next_tcb = first_tcb->sleep_queue;
 	                first_tcb->sleep_queue = NULL; // out of sleep queue
 
-	                //needDispatch = 1;
-
 	                runqueue_add(first_tcb, first_tcb->cur_prio);
 
 	                first_tcb = next_tcb;
 	            }
 	            devices[i].sleep_tail = NULL;
-	            //goto wake_up;
 	            needDispatch = 1;
         	}	
 		}
 	}
 
-    // active task from sleep queue
-//wake_up:
+    // dispatch
 	if (needDispatch) 
 	{
-		//goto wake_up;
 		uint8_t hi_prio = highest_prio();
 		if (cur_tcb -> cur_prio > hi_prio)
 		{
 			dispatch_save();
 		}
-		else
-		{
-		//	goto end;
-			putc('\0');		// WHY must need this...unhappy...
-		}
+		else putc('\0');		
 	}
-	/*else
-	{
-		goto end;
-	}*/
 
-//wake_up:
-//	dispatch_save();    
-
-//end:
 	enable_interrupts();
 }
