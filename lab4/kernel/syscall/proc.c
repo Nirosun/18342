@@ -27,6 +27,7 @@
 
 int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
 {
+    //printf("inside task_create...\n");
     disable_interrupts();
 
     if (num_tasks >= OS_AVAIL_TASKS || num_tasks <= 0)
@@ -40,7 +41,14 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
         enable_interrupts();
         return -EFAULT;
     }
-
+    //printf("ready for ub test...\n");
+    if (assign_schedule(&tasks, num_tasks) == 0) // ub_test fail
+    { 
+        printf("WTF!! Why are you here?!\n");
+        enable_interrupts();
+        return -ESCHED;
+    }
+    //printf("finish ub test...\n");
     // Allocate user-stacks and init kernel contexts of thread
     allocate_tasks(&tasks, num_tasks);
 
@@ -57,6 +65,14 @@ int event_wait(unsigned int dev  __attribute__((unused)))
     {
         return -EINVAL;
     }
+
+    tcb_t* cur_tcb = get_cur_tcb();
+
+    // if the current task holds a lock
+    /*if(cur_tcb->holds_lock >= 1)
+    {
+        return -EHOLDSLOCK;
+    }*/
 
     dev_wait(dev);
 

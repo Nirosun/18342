@@ -22,25 +22,6 @@
 tcb_t system_tcb[OS_MAX_TASKS]; /*allocate memory for system TCBs */
 
 
-void sort(task_t* tasks, size_t num_tasks)
-{
-    size_t i = 0;
-    size_t j = 0;
-
-    for (i = 0; i < num_tasks; i ++)
-    {
-        for (j = i + 1; j < num_tasks; j ++)
-        {
-            if (tasks[j].T < tasks[i].T)
-            {
-                task_t tmp = tasks[j];
-                tasks[j] = tasks[i];
-                tasks[i] = tmp;
-            }
-        }
-    }
-}
-
 /**
  * @brief set up the tcb for the ith task
  */
@@ -125,7 +106,7 @@ void allocate_tasks(task_t** tasks  __attribute__((unused)), size_t num_tasks  _
 {
     size_t i, prio; // prio starts from 1
 
-    sort(*tasks, num_tasks);
+    //sort(*tasks, num_tasks);
 
     for (i = 0; i < num_tasks; i++) 
     {

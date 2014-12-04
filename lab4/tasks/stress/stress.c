@@ -32,7 +32,6 @@ void fun1(void* str)
 		}
 		score[(int)str]++;
 		sleep((int)str);
-		printf("str: %d\n", (int)str);
 		if (event_wait((int)str) < 0)
 			panic("Dev 0 failed");
 	}
@@ -40,7 +39,6 @@ void fun1(void* str)
 
 void fun2(void* str)
 {
-	printf("!!!!!!!fun2!!!!!!!!!\n");
 	int i;
 	while(1)
 	{
@@ -48,12 +46,9 @@ void fun2(void* str)
 			once++;
 			puts("One more time");
 		}
-    	else {
+    else {
 			// check RMA
 			for(i=0;i<(NUM_TASK-2);i++) {
-
-				printf("I am fun2's loop; i=%d\n", i);
-				
 				if(score[i] < score[i+1]) {
 					printf("RMA check failed on %d\n",i);
 					puts("xxxxxxxxxx Test FAIL xxxxxxxx");
@@ -85,17 +80,12 @@ int main(int argc, char** argv)
 		tasks[i].C = (i+1);
 		tasks[i].T = (i+1)*100;
 		score[i] = 0;
-
-		printf("j: %d\n", (int)tasks[i].data);
 	}
 	tasks[i].lambda = fun2;
 	tasks[i].data = (void*)i;
   tasks[i].stack_pos = (void*)(0xa2000000 + 0x10000 * i);
   tasks[i].C = 0;
 	tasks[i].T = END_TIME;
-
-	printf("i: %d\n", (int)tasks[i].data);
-
 	task_create(tasks, NUM_TASK);
 	argc=argc; /* remove compiler warning */
 	argv=argv; /* remove compiler warning */
