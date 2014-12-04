@@ -77,16 +77,10 @@ int assign_schedule(task_t** tasks  __attribute__((unused)), size_t num_tasks  _
         c = (*tasks)[i].C;
         t = (*tasks)[i].T;
         b = (*tasks)[i].B;
+        
         if(ub_test + ((double)(c + b) / (double)t) > U[i])
-        {
-        #ifdef DEBUG
-            printf("acc_start_time: %d, C: %lu, T, %lu\n", (int)(acc_start_time*100), (*tasks)[i].C, (*tasks)[i].T);
-            printf("left: %d\n", (int)(acc_start_time + ((double)((*tasks)[i].C / (*tasks)[i].T)));
-            printf("cache[%d]: %d\n", i, (int)(cache[i]*1000));
-        #endif
-
 	        return 0;
-        }
+        
         ub_test += ((double)c / (double)t);
     }
 
