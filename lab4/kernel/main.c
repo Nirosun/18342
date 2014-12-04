@@ -74,6 +74,7 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
     dev_init();
     sched_init(NULL);
     mutex_init();
+    
     putc('\0');		// CANNOT DELETE...
 
 	ret_val = Load_User();

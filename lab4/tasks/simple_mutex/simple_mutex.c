@@ -145,6 +145,6 @@ int main(int argc, char** argv)
 	// just to get rid of compiler...
 	argc = argc;
 	argv = argv;
-	puts("WTF!\n");
+	//puts("WTF!\n");
 	return 0;
 }

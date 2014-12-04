@@ -43,6 +43,7 @@ void fun1(void* str)
 	tasks[0].stack_pos = (void*)0xa1000000;
 	tasks[0].C = 1;
 	tasks[0].T = PERIOD_DEV3;
+	tasks[0].B = 0;
 	
 	task_create(tasks, 1);
 	// task create wipe out the task, therefore never reaches here
@@ -53,13 +54,14 @@ void fun1(void* str)
 int main(int argc, char** argv)
 {
 	ct = 0;
-	puts("Test begin");
+	//puts("Test begin");
 	task_t tasks[1];
 	tasks[0].lambda = fun1;
 	tasks[0].data = (void*)0;
 	tasks[0].stack_pos = (void*)0xa1000000;
 	tasks[0].C = 1;
 	tasks[0].T = PERIOD_DEV3;
+	tasks[0].B = 0;
 
 	task_create(tasks, 1);
 

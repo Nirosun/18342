@@ -117,23 +117,23 @@ void sort(task_t* tasks, size_t num_tasks)
 int assign_schedule(task_t** tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
 {
     size_t i;
-    //size_t j;
-    //task_t tmp;
-    double ub_test = 0.0;
+    double ub_test = 0.0, c, t, b;
 
     sort(*tasks, num_tasks);
 
-    // Use UB test to see if these tasks are schedulable.
     for(i = 0; i < num_tasks; i++)
     {
-        if(ub_test + ((double)((*tasks)[i].C + (*tasks)[i].B) / (*tasks)[i].T) > U[i])
+        c = (*tasks)[i].C;
+        t = (*tasks)[i].T;
+        b = (*tasks)[i].B;
+        if(ub_test + ((double)(c + b) / (double)t) > U[i])
         {
             //printf("acc_start_time: %d, C: %lu, T, %lu\n", (int)(acc_start_time*100), (*tasks)[i].C, (*tasks)[i].T);
             //printf("left: %d\n", (int)(acc_start_time + ((double)((*tasks)[i].C / (*tasks)[i].T)));
             //printf("cache[%d]: %d\n", i, (int)(cache[i]*1000));
             return 0;
         }
-        ub_test += ((double)(*tasks)[i].C / (*tasks)[i].T);
+        ub_test += ((double)c / (double)t);
     }
 
     return 1;
