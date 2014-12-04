@@ -66,7 +66,11 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 	// install new handler
 	Install_Handler(swi_vec_addr, swi_handler_new, swi_old_inst);
 	Install_Handler(irq_vec_addr, irq_handler_new, irq_old_inst);
-	//printf("setting up...\n");
+
+	#ifdef DEBUG
+	printf("setting up...\n");
+	#endif
+
 	// initialize
 	init_irq();
 	init_os_time();
@@ -75,8 +79,7 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
     sched_init(NULL);
     mutex_init();
     
-    putc('\0');		// CANNOT DELETE...
-
+    putc('\0');		
 	ret_val = Load_User();
 	
 	return ret_val;

@@ -18,7 +18,7 @@ Load_User:
         bic	r3, r3, #0x000000ff
         orr	r3, r3, #0x000000d0
         msr	cpsr, r3		@ change cpsr to user mode and mask I,F
-        ldr	sp, =USR_STACK	@ setup user mode stack
+        ldr	sp, =USR_STACK	        @ setup user mode stack
         mov	r2, #0
         str	r2, [sp, #-4]!		@ push <NULL> on top of stack
         mov	r3, r0
@@ -35,5 +35,4 @@ Load_User:
 @        b	.L1
 @.L2:
 @	str	r0, [sp, #-4]!		@ push argc on user stack
-        ldr	r3, =LOAD_ADDR
-        blx	r3			@ jump to user program
+        ldr	pc, =LOAD_ADDR

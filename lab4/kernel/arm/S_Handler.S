@@ -27,12 +27,12 @@ S_Handler:
 	ldr	r0, [lr, #-4]
 	bic	r0, r0, #0xff000000
 
-	STMFD sp, {sp, lr}^
-    ADD   sp, sp, #-8
+	stmfd sp, {sp, lr}^
+    add   sp, sp, #-8
 
 	bl	C_SWI_Handler
 
-	LDMFD sp, {sp, lr}^
+	ldmfd sp, {sp, lr}^
     add   sp, sp, #8
 
 	ldr	r2, [sp, #14*4]
