@@ -114,13 +114,13 @@ int mutex_lock(int mutex  __attribute__((unused)))
 
 		enable_interrupts();
 	}
-	// unblock	
+	// cur_tcb becomes lock holder	
 	else
 	{
 		cur_mutex->bLock = 1;
 		cur_mutex->pHolding_Tcb = get_cur_tcb();
 
-		cur_tcb->cur_prio = 0;
+		cur_tcb->cur_prio = 0;	// give cur_tcb the highest priority
 		cur_tcb->holds_lock += 1;
 	}
 

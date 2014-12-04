@@ -140,38 +140,4 @@ int assign_schedule(task_t** tasks  __attribute__((unused)), size_t num_tasks  _
 }
 
 
-/*int assign_schedule(task_t** tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
-{
-    size_t i;
-    size_t j;
-    task_t tmp;
-    double acc_start_time = 0.0;
-
-
-    // Sort the tasks using bubble sort.
-    for(i = 0; i < num_tasks; i++)
-    {
-        for(j = i+1; j < num_tasks; j++)
-        {
-            if((*tasks)[i].T > (*tasks)[j].T)
-            {
-                tmp = (*tasks)[i];
-                (*tasks)[i] = (*tasks)[j];
-                (*tasks)[j] = tmp;
-            }
-        }
-    }
-
-    // Use UB test to see if these tasks are schedulable.
-    for(i = 0; i < num_tasks; i++)
-    {
-        if(acc_start_time + ((double)((*tasks)[i].C) / (*tasks)[i].T) > U[i])
-        {
-            return 0;
-        }
-        acc_start_time += ((double)(*tasks)[i].C / (*tasks)[i].T);
-    }
-
-    return 1;
-}*/
 

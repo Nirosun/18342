@@ -44,7 +44,7 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
     //printf("ready for ub test...\n");
     if (assign_schedule(&tasks, num_tasks) == 0) // ub_test fail
     { 
-        printf("WTF!! Why are you here?!\n");
+        //printf("WTF!! Why are you here?!\n");
         enable_interrupts();
         return -ESCHED;
     }
@@ -69,10 +69,10 @@ int event_wait(unsigned int dev  __attribute__((unused)))
     tcb_t* cur_tcb = get_cur_tcb();
 
     // if the current task holds a lock
-    /*if(cur_tcb->holds_lock >= 1)
+    if(cur_tcb->holds_lock >= 1)
     {
         return -EHOLDSLOCK;
-    }*/
+    }
 
     dev_wait(dev);
 
