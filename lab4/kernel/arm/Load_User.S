@@ -35,4 +35,5 @@ Load_User:
 @        b	.L1
 @.L2:
 @	str	r0, [sp, #-4]!		@ push argc on user stack
-        ldr	pc, =LOAD_ADDR
+        ldr	r3, =LOAD_ADDR
+        blx     r3

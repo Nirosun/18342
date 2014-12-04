@@ -18,6 +18,7 @@ S_Handler:
 	str	r2, [sp, #14*4]
 
 	@_enable_irq
+	mrs r12, cpsr
 	bic r12, r12, #0x80
 	msr cpsr, r12
 

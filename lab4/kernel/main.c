@@ -44,6 +44,7 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
 
 	app_startup();
 	global_data = table;
+	
 	/* add your code up to assert statement */
 	unsigned *swi_vec_addr = (unsigned *)0x08; 	
 	unsigned *irq_vec_addr = (unsigned *)0x18; //IRQ vector entry	
@@ -78,8 +79,7 @@ int kmain(int argc __attribute__((unused)), char** argv  __attribute__((unused))
     dev_init();
     sched_init(NULL);
     mutex_init();
-    
-    putc('\0');		
+    	
 	ret_val = Load_User();
 	
 	return ret_val;
