@@ -27,7 +27,10 @@
 
 int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attribute__((unused)))
 {
-    //printf("inside task_create...\n");
+    #ifdef DEBUG
+    printf("inside task_create...\n");
+    #endif
+
     disable_interrupts();
 
     if (num_tasks >= OS_AVAIL_TASKS || num_tasks <= 0)
@@ -41,14 +44,21 @@ int task_create(task_t* tasks  __attribute__((unused)), size_t num_tasks  __attr
         enable_interrupts();
         return -EFAULT;
     }
-    //printf("ready for ub test...\n");
+
+    #ifdef DEBUG
+    printf("ready for ub test...\n");
+    #endif
+
     if (assign_schedule(&tasks, num_tasks) == 0) // ub_test fail
     { 
-        //printf("WTF!! Why are you here?!\n");
         enable_interrupts();
         return -ESCHED;
     }
-    //printf("finish ub test...\n");
+
+    #ifdef DEBUG    
+    printf("finish ub test...\n");
+    #endif
+    
     // Allocate user-stacks and init kernel contexts of thread
     allocate_tasks(&tasks, num_tasks);
 
